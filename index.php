@@ -20,7 +20,7 @@
 <body class="home-page">
 <header>
     <a href="index.html" class="brand">
-        <img src="Logo.png" alt="HireHub Logo" width="100">
+        <img src="images/Logo.png" alt="HireHub Logo" width="100">
         <span>HireHub</span>
     </a>
     <nav>
@@ -39,7 +39,7 @@
 </section>
 <section class="employers">
   <h2>Our Trusted Partners</h2>
-  <img src="image.png" alt="Collage of companies affiliated with HireHub">
+  <img src="images/image.png" alt="Collage of companies affiliated with HireHub">
 </section>
 <section class="offices">
   <h2>Physical Locations</h2>
