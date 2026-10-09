@@ -25,7 +25,7 @@ Each section uses appropriate HTML elements such as lists, definition lists, blo
 <body class="about-page">
 	<header>
 		<a href="index.html">
-			<img src="Logo.png" width="100" alt="HireHub Logo">
+			<img src="images/Logo.png" width="100" alt="HireHub Logo">
 		</a>
 		<nav>
 			<ul>
@@ -100,7 +100,7 @@ Each section uses appropriate HTML elements such as lists, definition lists, blo
 		<section>
 			<h2>Meet the team</h2>
 			<figure>
-				<img src="group_photo.jpg" alt="WebDevs team group photo, photo collage of five members" width="900">
+				<img src="images/group_photo.jpg" alt="WebDevs team group photo, photo collage of five members" width="900">
 				<figcaption>WebDevs Group</figcaption>
 			</figure>
 		</section>
