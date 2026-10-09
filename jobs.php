@@ -17,7 +17,7 @@
 
     <header>
         <a href="index.html">
-            <img src="Logo.png" alt="HireHub Logo">
+            <img src="images/Logo.png" alt="HireHub Logo">
         </a>
 
         <nav>
