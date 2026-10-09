@@ -1,0 +1,569 @@
+/* ===== START OF GLOBAL CSS ===== */
+/* Shared: base page background and full-viewport body so backgrounds paint edge to edge */
+/* GenAI (Claude) was used to suggest the base html/body rules below, which fix a
+   background rendering strip on the home page and remove the default body margin
+   that was exposing the browser's default background colour. */
+html {
+    background-color: #eef1f4;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+/* Shared across all pages: visible focus outline for keyboard users */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+    outline: 2px solid #f2a71b;
+    outline-offset: 2px;
+}
+/* Shared: highlight whichever nav link matches the current page */
+nav a.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+/* Shared: gentle fade-in so navigating between pages feels smoother */
+body {
+    animation: fadeIn 0.35s ease-in;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+/* ===== END OF GLOBAL CSS ===== */
+
+
+/* ===== START OF THOMAS - JOBS PAGE CSS ===== */
+/* GenAI assistance was used to support CSS explanation, debugging and refinement. */
+
+.jobs-page main {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.jobs-page section {
+    width: 68%;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 1px solid #d6dde3;
+    border-radius: 8px;
+}
+
+.jobs-page section h2 {
+    color: #14324a;
+}
+
+.jobs-page aside {
+    width: 24%;
+    float: right;
+    background-color: #eaf2f7;
+    padding: 20px;
+    margin: 0 0 20px 20px;
+    border: 1px solid #b8c7d1;
+    border-radius: 8px;
+}
+
+.jobs-page header {
+    background-color: #14324a;
+    color: white;
+    padding: 20px;
+}
+
+.jobs-page header img {
+    width: 90px;
+    height: auto;
+}
+
+.jobs-page nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.jobs-page nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.jobs-page nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.jobs-page nav a:hover {
+    text-decoration: underline;
+}
+
+.jobs-page footer {
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+
+    .jobs-page section {
+        width: 100%;
+    }
+
+    .jobs-page aside {
+        width: 100%;
+        float: none;
+        margin: 0 0 20px 0;
+    }
+}
+
+/* ===== END OF THOMAS - JOBS PAGE CSS ===== */
+
+
+/* ===== START OF KEVIN - APPLY PAGE CSS =====  */
+.apply-page header {
+    background-color: #14324a;
+    color: white;
+    padding: 20px;
+}
+
+.apply-page footer {
+    text-align: center;
+}   
+
+.apply-page nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.apply-page nav a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.apply-page nav a:hover {
+    text-decoration: underline;
+}
+
+.apply-page nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.apply-page main {
+    width: 90%;
+    margin: 30px auto;
+}
+
+.apply-page legend {
+    color:#14324a;
+    font-weight: bold;
+}
+
+.apply-page header img {
+    width: 100px;
+    height: auto;
+}
+
+.apply-page h1 {
+    margin-bottom: 10px;
+
+}
+
+.apply-page .buttons{
+    display:flex;
+    gap: 30px;
+    margin-top: 25px;
+}
+/* ===== END OF KEVIN - APPLY PAGE CSS ===== */
+/* ===== START OF PRIYANKHA - APPLY PAGE CSS ===== */
+/* GenAI assistance was used to develop grid layout and responsive form styling below. */
+.apply-page fieldset {
+    border: 1px solid #d6dde3;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.apply-page fieldset p {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.apply-page input[type="text"],
+.apply-page input[type="email"],
+.apply-page select,
+.apply-page textarea {
+    padding: 8px 10px;
+    border: 1px solid #b8c7d1;
+    border-radius: 6px;
+    font: inherit;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Gender and Skills rows have multiple label/input pairs per <p>,so they shouldn't use the 2-column grid meant for single fields */
+.apply-page fieldset legend + p {
+    display: block;
+}
+/* Responsive: stack label above input on small screens */
+@media screen and (max-width: 600px) {
+    .apply-page fieldset p {
+        grid-template-columns: 1fr;
+    }
+}
+/* ===== END OF PRIYANKHA - APPLY PAGE CSS ===== */
+
+
+/* ===== START OF DIMITRI - HOME PAGE CSS ===== */
+.home-page {
+  background-color: #eef1f4;
+  background-image:
+    linear-gradient(#14324a, #14324a),
+    linear-gradient(#14324a, #14324a);
+  background-repeat: no-repeat;
+  background-position: left top, right top;
+  background-size: 300px 100%, 300px 100%;
+}
+
+/*Home Page: header and nav*/
+
+.home-page header {
+    background-color: #14324a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-page header img {
+    width: 100px;
+    height: auto;
+}
+
+.home-page nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.home-page nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-page nav a:hover {
+    text-decoration: underline;
+}
+
+.home-page .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/*Homepage: Hero*/
+
+.home-page .hero {
+  background: linear-gradient(135deg, #14324a 0%, #1f4b6d 60%, #2f6690 100%);
+  color: white;
+  padding: 60px 40px;
+}
+
+.home-page .hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.home-page .hero p {
+  max-width: 600px;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+/*Homepage: button*/
+
+.btn {
+  display: inline-block;
+  background-color: #f2a71b;
+  color: #14324a;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 12px 28px;
+  border-radius: 999px;
+}
+
+.btn:hover {
+  background-color: #d8930f;
+}
+
+/* Home page: employers*/
+
+.home-page .employers {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  text-align: center;
+  background-color: white;
+  border: 4px solid #14324a;
+  border-radius: 8px;
+}
+
+.home-page .employers h2 {
+  color: #14324a;
+  margin-bottom: 20px;
+}
+
+.home-page .employers img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*Home page: offices table*/
+.home-page .offices {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  padding: 40px;
+  background-color: white;
+  border: 4px solid #14324a;
+  border-radius: 8px;
+}
+
+.home-page .offices h2 {
+  color: #14324a;
+  margin-bottom: 20px;
+}
+
+.home-page table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.home-page caption {
+  font-weight: bold;
+  color: #14324a;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.home-page th,
+.home-page td {
+  text-align: left;
+  padding: 10px 15px;
+  border: 1px solid #d6dde3;
+}
+
+.home-page th[colspan="3"] {
+  background-color: #14324a;
+  color: white;
+}
+
+/*Home page: acknowledgement*/
+
+.home-page .acknowledgement {
+  background-color: white;
+  border: 4px solid #14324a;
+  border-radius: 8px;
+  padding: 30px 40px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.home-page .acknowledgement h2 {
+  color: #14324a;
+  margin-bottom: 15px;
+}
+
+.home-page .acknowledgement p {
+  margin-bottom: 15px;
+}
+
+.home-page .acknowledgement p:last-child {
+  margin-bottom: 0;
+}
+
+/*Home page: footer*/
+
+.home-page footer {
+  background-color: #14324a;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.home-page footer a {
+  color: white;
+}
+
+.home-page footer p {
+  margin-bottom: 8px;
+}
+
+.home-page footer p:last-child {
+  margin-bottom: 0;
+}
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 700px) {
+    .home-page {
+        background-size: 60px 100%, 60px 100%;
+    }
+    .home-page header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    .home-page nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+/* ===== END OF DIMITRI - HOME PAGE CSS ===== */
+
+
+/* ===== START OF MARK - ABOUT PAGE CSS ===== */
+.about-page {
+    color: #243746;
+    background-color: #f4f7f9;
+}
+
+.about-page header {
+    background-color: #14324a;
+    color: white;
+    padding: 20px;
+}
+
+.about-page header img {
+    width: 100px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.about-page header a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-page nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+
+.about-page nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.about-page nav a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.about-page nav a:hover {
+    text-decoration: underline;
+}
+
+.about-page main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+}
+
+.about-page section {
+    background-color: white;
+    border: 1px solid #d6dde3;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+.about-page h2 {
+    color: #14324a;
+}
+
+.about-page dt {
+    color: #14324a;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.about-page dd {
+    margin-left: 20px;
+}
+
+.about-page blockquote {
+    border-left: 4px solid #ef8354;
+    margin: 20px 0;
+    padding-left: 16px;
+}
+
+.about-page blockquote p {
+    margin: 8px 0;
+}
+
+.about-page cite {
+    font-style: normal;
+    font-weight: bold;
+}
+
+.about-page figure {
+    margin: 0;
+    text-align: center;
+}
+
+.about-page figure img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.about-page figcaption {
+    color: #52616b;
+    margin-top: 10px;
+}
+
+.about-page table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.about-page caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.about-page th,
+.about-page td {
+    border: 1px solid #b8c7d1;
+    padding: 10px;
+    text-align: left;
+}
+
+.about-page th {
+    background-color: #eaf2f7;
+}
+
+.about-page footer {
+    padding: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 800px) {
+    .about-page table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+/* ===== END OF MARK - ABOUT PAGE CSS ===== */
