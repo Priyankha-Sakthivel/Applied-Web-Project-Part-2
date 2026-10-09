@@ -14,7 +14,7 @@ Contribution note for individual assessment:
       <meta name="keywords" content="Apply, Application, Form, Jobs, Careers, Tour, Tourism, Travel, Holiday">
       <meta name="author" content="Priyankha Sakthivel, Kevin Tan">
       <title>HireHub Job Application Page</title>
-      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="styles/styles.css">
 
       <style>
             .apply-page .required-note {
@@ -27,7 +27,7 @@ Contribution note for individual assessment:
     <body class="apply-page">
         <header id="top">
             <p>
-                <a href="index.html"> <img src="Logo.png" width="100" alt="HireHub Logo"></a>
+                <a href="index.html"> <img src="images/Logo.png" width="100" alt="HireHub Logo"></a>
             </p>
             
             <nav>
