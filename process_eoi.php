@@ -105,3 +105,37 @@ if (!preg_match('/^[0-9]{4}$/', $postcode)) {
     exit('Error: Postcode must contain exactly 4 digits.');
 }
 
+// Validate email address
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    exit('Error: Please enter a valid email address.');
+}
+
+// Validate phone number: 8 to 12 digits
+if (!preg_match('/^[0-9]{8,12}$/', $phoneNum)) {
+    exit('Error: Phone number must contain 8 to 12 digits.');
+}
+
+// Validate selected skills
+$allowedSkills = [
+    'adaptabilty',
+    'communication',
+    'problem-solving',
+    'time_Management',
+    'conflict_resolution'
+];
+
+if (!is_array($skills)) {
+    exit('Error: Invalid skills selection.');
+}
+
+foreach ($skills as $skill) {
+    if (!in_array($skill, $allowedSkills, true)) {
+        exit('Error: Invalid skill selected.');
+    }
+}
+
+// Validate other skills length
+if (strlen($otherSkills) > 1000) {
+    exit('Error: Other skills must not exceed 1000 characters.');
+}
+
