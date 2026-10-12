@@ -60,3 +60,18 @@ if (!preg_match('/^[A-Za-z]{1,20}$/', $firstName) ||
     !preg_match('/^[A-Za-z]{1,20}$/', $lastName)) {
     exit('Error: First and last names must contain 1 to 20 letters.');
 }
+
+// Validate date of birth in dd/mm/yyyy format
+$date = DateTime::createFromFormat('!d/m/Y', $dob);
+
+if (!$date || $date->format('d/m/Y') !== $dob) {
+    exit('Error: Please enter a valid date of birth in dd/mm/yyyy format.');
+}
+
+// Check that the applicant is not born in the future
+if ($date > new DateTime('today')) {
+    exit('Error: Date of birth cannot be in the future.');
+}
+
+// Convert to MySQL DATE format
+$dob = $date->format('Y-m-d');
