@@ -13,3 +13,11 @@
     <title><?php echo htmlspecialchars($page_title ?? 'HireHub | Travel & Tourism Careers'); ?></title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
+
+<body class="<?php echo htmlspecialchars($body_class ?? ''); ?>">
+<header aria-label="Site header">
+    <a href="index.php" class="brand">
+        <img src="images/Logo.png" alt="HireHub Logo" width="100">
+        <span>HireHub</span>
+    </a>
+</header>
