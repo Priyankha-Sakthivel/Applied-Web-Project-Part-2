@@ -19,23 +19,23 @@
 </head>
 <body class="home-page">
 <header>
-    <a href="index.html" class="brand">
+    <a href="index.php" class="brand">
         <img src="images/Logo.png" alt="HireHub Logo" width="100">
         <span>HireHub</span>
     </a>
     <nav>
       <ul>
-        <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-        <li><a href="jobs.html">Job Description</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.php" class="active" aria-current="page">Home</a></li>
+        <li><a href="jobs.php">Job Description</a></li>
+        <li><a href="apply.php">Apply</a></li>
+        <li><a href="about.php">About</a></li>
       </ul>
     </nav>
 </header>
 <section class="hero">
   <h1>Your Odyssey To Success</h1>
   <p> HireHub is your ticket to finding a career in the tourism and travelling. From booking agents to travel planners, we have a diverse portfolio of paths we can help you walk in this competitive industry</p>
-  <a href="jobs.html" class="btn">View Job Opportunities</a>
+  <a href="jobs.php" class="btn">View Job Opportunities</a>
 </section>
 <section class="employers">
   <h2>Our Trusted Partners</h2>
