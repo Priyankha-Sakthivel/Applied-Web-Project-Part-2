@@ -96,11 +96,4 @@
   <p>As a travel technology platform, HireHub is committed to partnering with Aboriginal and Torres Strait Islander-led tourism operators, ensuring cultural experiences on our platform are curated in genuine consultation with the communities they represent.</p>
 </section>
 
-<!--Footer-->
-<footer>
-  <p><a href="https://studentteam2.atlassian.net/browse/G2">Jira Project</a></p>
-  <p><a href="https://github.com/Priyankha-Sakthivel/Applied-Web-Project-Part-1">GitHub Repository</a></p>
-  <p><a href="mailto:info@hirehub.com">info@hirehub.com</a></p>
-</footer>
-</body>
-</html>
+<?php include 'footer.inc'; ?>
