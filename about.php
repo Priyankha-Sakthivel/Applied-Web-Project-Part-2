@@ -14,13 +14,6 @@ Each section uses appropriate HTML elements such as lists, definition lists, blo
 	<meta name="description" content="Meet the HireHub project team and learn about each member's contribution.">
 	<title>About the Team | HireHub</title>
 	<link rel="stylesheet" href="styles/styles.css">
-	<style>
-		/* Embedded CSS: gives each team member's quote a subtle background so it stands out */
-		.about-page blockquote {
-			background-color: #f4f7f9;
-			padding: 10px 16px;
-		}
-	</style>
 </head>
 <body class="about-page">
 	<header>
@@ -35,7 +28,7 @@ Each section uses appropriate HTML elements such as lists, definition lists, blo
 				<li><a href="about.html" class="active" aria-current="page">About</a></li>
 			</ul>
 		</nav>
-		<h1 style="letter-spacing: 0.5px;">About the Team</h1>
+		<h1 class="page-title-spaced">About the Team</h1>
 	</header>
 
 	<main>

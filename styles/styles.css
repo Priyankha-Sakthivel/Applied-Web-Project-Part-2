@@ -587,3 +587,13 @@ body {
 .legend-spaced {
     letter-spacing: 0.5px;
 }
+
+
+.about-page blockquote {
+	background-color: #f4f7f9;
+	padding: 10px 16px;
+}
+
+.page-title-spaced {
+    letter-spacing: 0.5px;
+}
