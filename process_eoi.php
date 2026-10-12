@@ -202,3 +202,26 @@ $eoiNumber = mysqli_insert_id($conn);
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
 
+// Display confirmation after successful submission
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Confirmation</title>
+</head>
+<body>
+    <h1>Application Submitted Successfully!</h1>
+
+    <p>Thank you for submitting your application.</p>
+
+    <p>Your EOI reference number is:
+        <strong><?php echo htmlspecialchars((string)$eoiNumber); ?></strong>
+    </p>
+
+    <p>Your application status is: New</p>
+
+    <p><a href="index.php">Return to Home</a></p>
+</body>
+</html>
+
