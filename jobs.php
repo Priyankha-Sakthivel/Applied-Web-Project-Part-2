@@ -150,10 +150,4 @@
 
     </main>
 
-    <footer>
-        <p>&copy; 2026 Tourism and Travel Technology Platform</p>
-    </footer>
-
-</body>
-
-</html>
+<?php include 'footer.inc'; ?>
