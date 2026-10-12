@@ -154,3 +154,51 @@ if (!mysqli_set_charset($conn, 'utf8mb4')) {
     exit('Error: Unable to configure the database connection.');
 }
 
+// Convert selected skills into a string
+$skillsText = implode(', ', $skills);
+
+// Insert the application using a prepared statement
+$query = "INSERT INTO eoi
+    (jobRef, firstName, lastName, dob, gender,
+     streetAddress, suburb, state, postcode,
+     email, phoneNum, skills, otherSkills)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+$stmt = mysqli_prepare($conn, $query);
+
+if (!$stmt) {
+    mysqli_close($conn);
+    http_response_code(500);
+    exit('Error: Unable to prepare the application.');
+}
+
+mysqli_stmt_bind_param(
+    $stmt,
+    "sssssssssssss",
+    $jobRef,
+    $firstName,
+    $lastName,
+    $dob,
+    $gender,
+    $streetAddress,
+    $suburb,
+    $state,
+    $postcode,
+    $email,
+    $phoneNum,
+    $skillsText,
+    $otherSkills
+);
+
+if (!mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+    http_response_code(500);
+    exit('Error: Unable to save the application.');
+}
+
+$eoiNumber = mysqli_insert_id($conn);
+
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
+
