@@ -20,4 +20,5 @@
         <img src="images/Logo.png" alt="HireHub Logo" width="100">
         <span>HireHub</span>
     </a>
+    <?php include 'nav.inc'; ?>
 </header>
