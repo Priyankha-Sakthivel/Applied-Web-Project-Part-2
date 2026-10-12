@@ -15,13 +15,6 @@ Contribution note for individual assessment:
       <meta name="author" content="Priyankha Sakthivel, Kevin Tan">
       <title>HireHub Job Application Page</title>
       <link rel="stylesheet" href="styles/styles.css">
-
-      <style>
-            .apply-page .required-note {
-                color: #14324a;
-                font-weight: 600;
-            } 
-      </style>
     </head>
 
     <body class="apply-page">
@@ -48,7 +41,7 @@ Contribution note for individual assessment:
 
     <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
         <fieldset>
-            <legend style="letter-spacing: 0.5px;">Job Reference</legend>
+            <legend class="legend-spaced">Job Reference</legend>
             <p>
                 <label for="jobRef">Job Reference Number *</label>
                 <input type="text" id="jobRef" name="jobRef" pattern="[A-Za-z0-9]{6}" required title="Must be exactly 6 letters and/or numbers, e.g. AB1234">

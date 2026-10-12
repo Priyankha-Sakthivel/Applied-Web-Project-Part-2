@@ -577,3 +577,13 @@ body {
 .page-title {
     margin-bottom: 10px;
 }
+
+
+.apply-page .required-note {
+    color: #14324a;
+    font-weight: 600;
+} 
+
+.legend-spaced {
+    letter-spacing: 0.5px;
+}
