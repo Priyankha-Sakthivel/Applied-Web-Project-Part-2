@@ -49,3 +49,14 @@ foreach ($requiredFields as $field => $value) {
         exit("Error: $field is required.");
     }
 }
+
+// Validate job reference: exactly 6 letters or numbers
+if (!preg_match('/^[A-Za-z0-9]{6}$/', $jobRef)) {
+    exit('Error: Job reference must contain exactly 6 letters or numbers.');
+}
+
+// Validate applicant names
+if (!preg_match('/^[A-Za-z]{1,20}$/', $firstName) ||
+    !preg_match('/^[A-Za-z]{1,20}$/', $lastName)) {
+    exit('Error: First and last names must contain 1 to 20 letters.');
+}
