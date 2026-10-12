@@ -1,3 +1,4 @@
+
 <?php
 // apply.php - Job application form.
 // Part 1 fields 1-6 (Job Reference, First Name, Last Name, Date of Birth, Gender, Street Address): Priyankha Sakthivel
@@ -11,7 +12,7 @@ include 'header.inc';
         <p>Please fill out the form below to apply for a position via our company.</p>
         <p class="required-note"><strong>All fields marked with an asterisk (*) are required.</strong></p>
 
-    <form method="post" action="https://mercury.swin.edu.au/it000000/formtest.php">
+    <form method="post" action="process_eoi.php">
         <fieldset>
             <legend class="legend-spaced">Job Reference</legend>
             <p>
@@ -55,16 +56,16 @@ include 'header.inc';
             <legend>Gender *</legend>
             <p>
                 <label for="gender1">Male</label>
-                <input type="radio" id="gender1" name="gender" required>
+                <input type="radio" id="gender1" name="gender" value="Male" required>
                  
                 <label for="gender2">Female</label>
-                <input type="radio" id="gender2" name="gender">
+                <input type="radio" id="gender2" name="gender" value="Female">
 
                 <label for="gender3">Other</label>
-                <input type="radio" id="gender3" name="gender">
+                <input type="radio" id="gender3" name="gender" value="Other">
 
                 <label for="gender4">Prefer not to say</label>
-                <input type="radio" id="gender4" name="gender">
+                <input type="radio" id="gender4" name="gender" value="Prefer not to say">
             </p>
         </fieldset>
          
