@@ -30,7 +30,7 @@ body {
     to { opacity: 1; }
 }
 
-/* ===== SHARED HEADER (all pages) ===== */
+/* ---- SHARED HEADER (all pages) ---- */
 header {
     background-color: #14324a;
     color: white;
@@ -53,7 +53,7 @@ header .brand {
     font-size: 1.5rem;
     font-weight: bold;
 }
-/* ===== SHARED FOOTER (all pages) ===== */
+/* ---- SHARED FOOTER (all pages) ---- */
 footer {
     background-color: #14324a;
     color: white;
@@ -73,7 +73,7 @@ footer p {
 footer p:last-child {
     margin-bottom: 0;
 }
-/* ===== SHARED HEADER AND NAV: small screens ===== */
+/* ---- SHARED HEADER AND NAV: small screens ---- */
 @media screen and (max-width: 700px) {
     header {
         flex-direction: column;
@@ -84,6 +84,13 @@ footer p:last-child {
         flex-wrap: wrap;
         justify-content: center;
     }
+}
+/* ---- ACTIVE NAV LINK ---- */
+nav a.active {
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 6px;
 }
 
 /* ===== END OF GLOBAL CSS ===== */

@@ -1,37 +1,12 @@
-<!-- This page is the About page for the HireHub project. 
-It provides information about the team members, their contributions, quotes, fun facts, and a group photo.
-Some members were not present during some sessions, and thus a group photo will be a composite of individual photos. 
-The page is structured with semantic HTML elements, including header, main, section, and footer. 
-It also includes a navigation menu for easy access to other pages of the project. 
-The content is organized into sections for team details, member contributions, quotes, group photo, and fun facts. 
-Each section uses appropriate HTML elements such as lists, definition lists, blockquotes, figures, and tables to present the information clearly.	
--->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Meet the HireHub project team and learn about each member's contribution.">
-	<title>About the Team | HireHub</title>
-	<link rel="stylesheet" href="styles/styles.css">
-</head>
-<body class="about-page">
-	<header>
-		<a href="index.html">
-			<img src="images/Logo.png" width="100" alt="HireHub Logo">
-		</a>
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="jobs.html">Job Description</a></li>
-				<li><a href="apply.html">Apply</a></li>
-				<li><a href="about.html" class="active" aria-current="page">About</a></li>
-			</ul>
-		</nav>
-		<h1 class="page-title-spaced">About the Team</h1>
-	</header>
-
+<?php
+// about.php - About page for the HireHub project: team details, contributions,
+// quotes, group photo and fun facts (made dynamic in a later step).
+$page_title = "About the Team | HireHub";
+$body_class = "about-page";
+include 'header.inc';
+?>
 	<main>
+		<h1 class="page-title-spaced">About the Team</h1>
 		<section class="team-details">
 			<h2>Team Details</h2>
 			<ul>

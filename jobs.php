@@ -1,34 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jobs | Tourism and Travel</title>
-    <link rel="stylesheet" href="styles/styles.css">
-</head>
-
-<body class="jobs-page">
-
-    <header>
-        <a href="index.html">
-            <img src="images/Logo.png" alt="HireHub Logo">
-        </a>
-
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html" class="active" aria-current="page">Job Description</a></li>
-                <li><a href="apply.html">Apply</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-
-        <h1 class="page-title">Career Opportunities</h1>
-    </header>
-
+<?php
+$page_title = "Jobs | HireHub";
+$body_class = "jobs-page";
+include 'header.inc';
+?>
     <main>
-
+        <h1 class="page-title">Career Opportunities</h1>
         <aside>
             <h2>Why Work With Us?</h2>
 

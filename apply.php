@@ -1,41 +1,13 @@
-<!DOCTYPE html>
-<!--HireHub Recruitment Website
-Page: apply.html - Job Application Form
-
-Contribution note for individual assessment:
-- Fields 1-6 (Job Reference Number, First Name, Last Name, Date of Birth, Gender, Street Adress) developed by Priyankha Sakthivel
-- Fields 7-13 (Suburb/Town, State, Postcode, Email, Phone, Skills, Other Skills) developed by Kevin Tan-->
-
-<html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Job application form for tourism and travel industry professionals">
-      <meta name="keywords" content="Apply, Application, Form, Jobs, Careers, Tour, Tourism, Travel, Holiday">
-      <meta name="author" content="Priyankha Sakthivel, Kevin Tan">
-      <title>HireHub Job Application Page</title>
-      <link rel="stylesheet" href="styles/styles.css">
-    </head>
-
-    <body class="apply-page">
-        <header id="top">
-            <p>
-                <a href="index.html"> <img src="images/Logo.png" width="100" alt="HireHub Logo"></a>
-            </p>
-            
-            <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="jobs.html">Job Description</a></li>
-                <li><a href="apply.html" class="active" aria-current="page">Apply</a></li><!-- AI added class="active" and aria-current="page" to improve styling and accessibility -->
-                <li><a href="about.html">About</a></li>
-            </ul>
-        </nav>
-
-            <h1>Job Application Page</h1>
-
-        </header>
+<?php
+// apply.php - Job application form.
+// Part 1 fields 1-6 (Job Reference, First Name, Last Name, Date of Birth, Gender, Street Address): Priyankha Sakthivel
+// Part 1 fields 7-13 (Suburb, State, Postcode, Email, Phone, Skills, Other Skills): Kevin Tan
+$page_title = "Apply | HireHub";
+$body_class = "apply-page";
+include 'header.inc';
+?>
     <main>
+        <h1>Job Application Page</h1>
         <p>Please fill out the form below to apply for a position via our company.</p>
         <p class="required-note"><strong>All fields marked with an asterisk (*) are required.</strong></p>
 
