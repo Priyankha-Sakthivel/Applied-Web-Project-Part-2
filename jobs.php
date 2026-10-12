@@ -1,7 +1,11 @@
+
 <?php
-// Task 4: Connect job listings to the database
+// Task 4: Display job listings dynamically from the database
+// Group 02 - Tourism and Travel
+
 require_once 'settings.php';
 
+// Connect to the database
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$conn) {
@@ -9,9 +13,14 @@ if (!$conn) {
     exit('Unable to connect to the jobs database.');
 }
 
-mysqli_set_charset($conn, 'utf8mb4');
+// Set database character encoding
+if (!mysqli_set_charset($conn, 'utf8mb4')) {
+    mysqli_close($conn);
+    http_response_code(500);
+    exit('Unable to configure the database connection.');
+}
 
-// Task 4: Retrieve all job listings from the database
+// Retrieve all job listings
 $query = "SELECT * FROM jobs ORDER BY jobRef";
 $result = mysqli_query($conn, $query);
 
@@ -21,17 +30,39 @@ if (!$result) {
     exit('Unable to retrieve job listings.');
 }
 
+// Store the job records
 $jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+// Close the database connection
 mysqli_free_result($result);
 mysqli_close($conn);
+
+// Safely display text from the database
+function displayJobText($text) {
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+}
+
+// Convert each line of requirements into a list item
+function displayJobList($text) {
+    $items = preg_split('/\r\n|\r|\n/', $text);
+
+    foreach ($items as $item) {
+        $item = trim($item);
+
+        if ($item !== '') {
+            echo '<li>' . displayJobText($item) . '</li>';
+        }
+    }
+}
 
 $page_title = "Jobs | HireHub";
 $body_class = "jobs-page";
 include 'header.inc';
 ?>
+
     <main>
         <h1 class="page-title">Career Opportunities</h1>
+
         <aside>
             <h2>Why Work With Us?</h2>
 
@@ -47,104 +78,65 @@ include 'header.inc';
             </ul>
         </aside>
 
-        <section>
-            <h2>Front-End Web Developer</h2>
+        <?php if (empty($jobs)): ?>
 
-            <p><strong>Reference Number:</strong> TRV101</p>
-            <p><strong>Salary:</strong> $70,000 - $80,000 per year</p>
-            <p><strong>Reports To:</strong> Web Development Manager</p>
+            <section>
+                <h2>No Current Vacancies</h2>
+                <p>There are currently no job opportunities available. Please check back later.</p>
+            </section>
 
-            <p>
-                We are looking for a Front-End Web Developer to help create
-                user-friendly and responsive websites for our tourism and travel platform.
-            </p>
+        <?php else: ?>
 
-            <h3>Key Responsibilities</h3>
-            <ul>
-                <li>Develop and maintain website pages.</li>
-                <li>Improve website usability and design.</li>
-                <li>Work with other members of the development team.</li>
-            </ul>
+            <?php foreach ($jobs as $job): ?>
 
-            <h3>Essential Requirements</h3>
-            <ol>
-                <li>Basic knowledge of HTML and CSS.</li>
-                <li>Good communication skills.</li>
-                <li>Ability to work effectively in a team.</li>
-            </ol>
+                <section>
+                    <h2><?php echo displayJobText($job['title']); ?></h2>
 
-            <h3>Preferable Requirements</h3>
-            <ul>
-                <li>Knowledge of responsive web design.</li>
-                <li>Interest in tourism and travel technology.</li>
-            </ul>
-        </section>
+                    <p>
+                        <strong>Reference Number:</strong>
+                        <?php echo displayJobText($job['jobRef']); ?>
+                    </p>
 
-        <section>
-            <h2>Travel Systems Support Analyst</h2>
+                    <p>
+                        <strong>Salary:</strong>
+                        <?php echo displayJobText($job['salary']); ?>
+                    </p>
 
-            <p><strong>Reference Number:</strong> TRV202</p>
-            <p><strong>Salary:</strong> $65,000 - $75,000 per year</p>
-            <p><strong>Reports To:</strong> IT Support Manager</p>
+                    <p>
+                        <strong>Reports To:</strong>
+                        <?php echo displayJobText($job['reportsTo']); ?>
+                    </p>
 
-            <p>
-                We are looking for a Travel Systems Support Analyst to provide
-                technical support for our online travel booking systems and services.
-            </p>
+                    <p>
+                        <?php echo displayJobText($job['description']); ?>
+                    </p>
 
-            <h3>Key Responsibilities</h3>
-            <ul>
-                <li>Provide technical support to users and staff.</li>
-                <li>Identify and resolve issues with travel booking systems.</li>
-                <li>Maintain records of technical problems and solutions.</li>
-            </ul>
+                    <h3>Key Responsibilities</h3>
+                    <ul>
+                        <?php displayJobList($job['responsibilities']); ?>
+                    </ul>
 
-            <h3>Essential Requirements</h3>
-            <ul>
-                <li>Good problem-solving skills.</li>
-                <li>Basic knowledge of computer systems and networks.</li>
-                <li>Good written and verbal communication skills.</li>
-            </ul>
+                    <h3>Essential Requirements</h3>
 
-            <h3>Preferable Requirements</h3>
-            <ul>
-                <li>Experience in customer or technical support.</li>
-                <li>Interest in travel technology systems.</li>
-            </ul>
-        </section>
+                    <?php if ($job['jobRef'] === 'TRV101'): ?>
+                        <ol>
+                            <?php displayJobList($job['essentialRequirements']); ?>
+                        </ol>
+                    <?php else: ?>
+                        <ul>
+                            <?php displayJobList($job['essentialRequirements']); ?>
+                        </ul>
+                    <?php endif; ?>
 
-        <section>
-            <h2>Digital Travel Content Coordinator</h2>
+                    <h3>Preferable Requirements</h3>
+                    <ul>
+                        <?php displayJobList($job['preferableRequirements']); ?>
+                    </ul>
+                </section>
 
-            <p><strong>Reference Number:</strong> TRV303</p>
-            <p><strong>Salary:</strong> $60,000 - $70,000 per year</p>
-            <p><strong>Reports To:</strong> Marketing Manager</p>
+            <?php endforeach; ?>
 
-            <p>
-                We are looking for a Digital Travel Content Coordinator to create
-                and maintain engaging content for our tourism and travel platform.
-            </p>
-
-            <h3>Key Responsibilities</h3>
-            <ul>
-                <li>Create and update travel-related website content.</li>
-                <li>Maintain accurate destination and service information.</li>
-                <li>Work with the marketing team to support online campaigns.</li>
-            </ul>
-
-            <h3>Essential Requirements</h3>
-            <ul>
-                <li>Good written communication skills.</li>
-                <li>Strong attention to detail.</li>
-                <li>Ability to work effectively in a team.</li>
-            </ul>
-
-            <h3>Preferable Requirements</h3>
-            <ul>
-                <li>Experience creating digital content.</li>
-                <li>Interest in tourism, travel and online media.</li>
-            </ul>
-        </section>
+        <?php endif; ?>
 
     </main>
 
