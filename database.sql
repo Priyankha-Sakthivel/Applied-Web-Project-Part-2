@@ -32,3 +32,23 @@ CREATE TABLE IF NOT EXISTS jobs (
     essentialRequirements TEXT NOT NULL,
     preferableRequirements TEXT NOT NULL
 );
+
+-- Task 4: First job listing
+INSERT INTO jobs (
+    jobRef, title, salary, reportsTo, description,
+    responsibilities, essentialRequirements, preferableRequirements
+) VALUES (
+    'TRV101',
+    'Front-End Web Developer',
+    '$70,000 - $80,000 per year',
+    'Web Development Manager',
+    'We are looking for a Front-End Web Developer to help create user-friendly and responsive websites for our tourism and travel platform.',
+    'Develop and maintain website pages.
+Improve website usability and design.
+Work with other members of the development team.',
+    'Basic knowledge of HTML and CSS.
+Good communication skills.
+Ability to work effectively in a team.',
+    'Knowledge of responsive web design.
+Interest in tourism and travel technology.'
+);
