@@ -29,6 +29,30 @@ body {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+/* ===== SHARED HEADER (all pages) ===== */
+header {
+    background-color: #14324a;
+    color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header img {
+    width: 100px;
+    height: auto;
+}
+
+header .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 /* ===== END OF GLOBAL CSS ===== */
 
 
