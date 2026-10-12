@@ -72,3 +72,23 @@ Good written and verbal communication skills.',
     'Experience in customer or technical support.
 Interest in travel technology systems.'
 );
+
+-- Task 4: Third job listing
+INSERT INTO jobs (
+    jobRef, title, salary, reportsTo, description,
+    responsibilities, essentialRequirements, preferableRequirements
+) VALUES (
+    'TRV303',
+    'Digital Travel Content Coordinator',
+    '$60,000 - $70,000 per year',
+    'Marketing Manager',
+    'We are looking for a Digital Travel Content Coordinator to create and maintain engaging content for our tourism and travel platform.',
+    'Create and update travel-related website content.
+Maintain accurate destination and service information.
+Work with the marketing team to support online campaigns.',
+    'Good written communication skills.
+Strong attention to detail.
+Ability to work effectively in a team.',
+    'Experience creating digital content.
+Interest in tourism, travel and online media.'
+);
