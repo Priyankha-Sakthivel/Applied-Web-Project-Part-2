@@ -52,3 +52,23 @@ Ability to work effectively in a team.',
     'Knowledge of responsive web design.
 Interest in tourism and travel technology.'
 );
+
+-- Task 4: Second job listing
+INSERT INTO jobs (
+    jobRef, title, salary, reportsTo, description,
+    responsibilities, essentialRequirements, preferableRequirements
+) VALUES (
+    'TRV202',
+    'Travel Systems Support Analyst',
+    '$65,000 - $75,000 per year',
+    'IT Support Manager',
+    'We are looking for a Travel Systems Support Analyst to provide technical support for our online travel booking systems and services.',
+    'Provide technical support to users and staff.
+Identify and resolve issues with travel booking systems.
+Maintain records of technical problems and solutions.',
+    'Good problem-solving skills.
+Basic knowledge of computer systems and networks.
+Good written and verbal communication skills.',
+    'Experience in customer or technical support.
+Interest in travel technology systems.'
+);
