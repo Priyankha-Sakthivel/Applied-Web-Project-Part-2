@@ -18,3 +18,17 @@ CREATE TABLE IF NOT EXISTS eoi (
     otherSkills TEXT,
     status ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
 );
+
+-- Task 4: Store job descriptions in the database
+-- Group 02: Tourism and Travel
+
+CREATE TABLE IF NOT EXISTS jobs (
+    jobRef VARCHAR(6) NOT NULL PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    salary VARCHAR(100) NOT NULL,
+    reportsTo VARCHAR(100) NOT NULL,
+    description TEXT NOT NULL,
+    responsibilities TEXT NOT NULL,
+    essentialRequirements TEXT NOT NULL,
+    preferableRequirements TEXT NOT NULL
+);
