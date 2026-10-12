@@ -73,6 +73,19 @@ footer p {
 footer p:last-child {
     margin-bottom: 0;
 }
+/* ===== SHARED HEADER AND NAV: small screens ===== */
+@media screen and (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
 /* ===== END OF GLOBAL CSS ===== */
 
 
