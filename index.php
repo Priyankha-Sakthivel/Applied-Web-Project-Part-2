@@ -8,15 +8,8 @@
   <meta name="author" content="HireHub">
   <title>HireHub | Travel &amp; Tourism Careers</title>
   <link rel="stylesheet" href="styles/styles.css">
-  <style>
-  /*Embedded CSS: page specific print rule that makes only this page have a logo collage worth hiding when printed */
-  @media print {
-    .employers {
-      display: none;
-    }
-  }
-</style>
 </head>
+
 <body class="home-page">
 <header>
     <a href="index.php" class="brand">
@@ -54,7 +47,7 @@
       <th>Contact</th>
     </tr>
     <tr>
-      <td style="font-weight: bold;">Melbourne (HQ)</td> <!-- Inline CSS: highlights Melbourne as the head office -->
+      <td class="hq-city">Melbourne (HQ)</td> 
       <td>Partnerships, Help centre</td>
       <td>03 0009 4569</td>
     </tr>

@@ -557,3 +557,14 @@ body {
     }
 }
 /* ===== END OF MARK - ABOUT PAGE CSS ===== */
+
+/* Hide the employer logo collage when printing */
+@media print {
+    .employers {
+    display: none;
+    }
+}
+
+.hq-city {
+    font-weight: bold;
+}
