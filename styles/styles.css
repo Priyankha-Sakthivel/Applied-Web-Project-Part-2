@@ -568,3 +568,12 @@ body {
 .hq-city {
     font-weight: bold;
 }
+
+
+.jobs-page footer {
+    text-align: center;
+}
+
+.page-title {
+    margin-bottom: 10px;
+}

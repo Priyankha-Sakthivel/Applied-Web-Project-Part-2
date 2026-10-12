@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs | Tourism and Travel</title>
     <link rel="stylesheet" href="styles/styles.css">
-    <style>
-        .jobs-page footer {
-        text-align: center;
-    }
-    </style>
 </head>
 
 <body class="jobs-page">
@@ -29,7 +24,7 @@
             </ul>
         </nav>
 
-        <h1 style="margin-bottom: 10px;">Career Opportunities</h1>
+        <h1 class="page-title">Career Opportunities</h1>
     </header>
 
     <main>
