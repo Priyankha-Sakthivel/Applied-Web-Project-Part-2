@@ -1,4 +1,16 @@
 <?php
+// Task 4: Connect job listings to the database
+require_once 'settings.php';
+
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+if (!$conn) {
+    http_response_code(500);
+    exit('Unable to connect to the jobs database.');
+}
+
+mysqli_set_charset($conn, 'utf8mb4');
+
 $page_title = "Jobs | HireHub";
 $body_class = "jobs-page";
 include 'header.inc';
