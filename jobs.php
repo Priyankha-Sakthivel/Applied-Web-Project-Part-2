@@ -11,6 +11,21 @@ if (!$conn) {
 
 mysqli_set_charset($conn, 'utf8mb4');
 
+// Task 4: Retrieve all job listings from the database
+$query = "SELECT * FROM jobs ORDER BY jobRef";
+$result = mysqli_query($conn, $query);
+
+if (!$result) {
+    mysqli_close($conn);
+    http_response_code(500);
+    exit('Unable to retrieve job listings.');
+}
+
+$jobs = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+mysqli_free_result($result);
+mysqli_close($conn);
+
 $page_title = "Jobs | HireHub";
 $body_class = "jobs-page";
 include 'header.inc';
