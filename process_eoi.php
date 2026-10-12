@@ -75,3 +75,33 @@ if ($date > new DateTime('today')) {
 
 // Convert to MySQL DATE format
 $dob = $date->format('Y-m-d');
+
+// Validate gender
+$validGenders = ['Male', 'Female', 'Other', 'Prefer not to say'];
+
+if (!in_array($gender, $validGenders, true)) {
+    exit('Error: Please select a valid gender.');
+}
+
+// Validate street address
+if (strlen($streetAddress) < 2 || strlen($streetAddress) > 40) {
+    exit('Error: Street address must be between 2 and 40 characters.');
+}
+
+// Validate suburb
+if (!preg_match("/^[A-Za-z0-9 ]{2,40}$/", $suburb)) {
+    exit('Error: Please enter a valid suburb.');
+}
+
+// Validate Australian state
+$validStates = ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'];
+
+if (!in_array($state, $validStates, true)) {
+    exit('Error: Please select a valid Australian state.');
+}
+
+// Validate postcode
+if (!preg_match('/^[0-9]{4}$/', $postcode)) {
+    exit('Error: Postcode must contain exactly 4 digits.');
+}
+
