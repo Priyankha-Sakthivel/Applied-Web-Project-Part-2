@@ -27,3 +27,25 @@ $phoneNum = trim($_POST['phoneNum'] ?? '');
 
 $skills = $_POST['skills'] ?? [];
 $otherSkills = trim($_POST['otherSkills'] ?? '');
+
+// Check that all required fields have been submitted
+$requiredFields = [
+    'Job Reference' => $jobRef,
+    'First Name' => $firstName,
+    'Last Name' => $lastName,
+    'Date of Birth' => $dob,
+    'Gender' => $gender,
+    'Street Address' => $streetAddress,
+    'Suburb' => $suburb,
+    'State' => $state,
+    'Postcode' => $postcode,
+    'Email' => $email,
+    'Phone Number' => $phoneNum
+];
+
+foreach ($requiredFields as $field => $value) {
+    if ($value === '') {
+        http_response_code(400);
+        exit("Error: $field is required.");
+    }
+}
