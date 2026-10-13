@@ -33,6 +33,22 @@ include 'header.inc';
         </form>
     </section>
 
+    <section>
+        <h2>Delete EOIs by job reference</h2>
+ <!-- 𝗧𝗢𝗗𝗢: Implement deletion securely and request confirmation before deleting. -->
+        <form method="post">
+            <label for="deleteJobRef">Job reference</label>
+            <input id="deleteJobRef" name="jobRef">
+            <button type="submit" name="action" value="delete-by-job-ref">Delete matching EOIs</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Change EOI status</h2>
+        <!-- 𝗧𝗢𝗗𝗢: Implement status updates using a prepared statement and validate allowed values. -->
+        <form method="post">
+            <label for="eoiNumber">EOI number</label>
+            <input id="eoiNumber" name="eoiNumber" type="number">
 
 
 
