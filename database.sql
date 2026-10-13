@@ -19,6 +19,17 @@ CREATE TABLE IF NOT EXISTS eoi (
     status ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
 );
 
+-- HR manager accounts.
+-- Store password_hash() output, never plaintext passwords.
+CREATE TABLE IF NOT EXISTS users (
+    userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL
+);
+
+-- TODO: Create the marker's admin account with username "admin" and a
+-- password_hash() hash of "admin"; do not insert the plaintext password.
+
 -- Task 4: Store job descriptions in the database
 -- Group 02: Tourism and Travel
 
