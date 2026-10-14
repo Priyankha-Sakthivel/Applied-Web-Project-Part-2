@@ -1,6 +1,28 @@
 <?php
-// 𝗧𝗢𝗗𝗢: Start/validate the manager session; redirect unauthenticated users to login.php.
-// 𝗧𝗢𝗗𝗢: Process manager actions with prepared statements and CSRF protection.
+// manage.php - HR manager queries on the eoi table.
+
+session_start();
+
+// TODO - Redirect anyone who isn't logged in to login.php, waiting on Mark to write/let me know which $_SESSION variable does login.php set.
+// if (!isset($_SESSION['NAME_FROM_MARK'])) {
+//     header('Location: login.php');
+//     exit;
+// }
+
+require_once 'settings.php';
+
+// Holds the EOIs to show in the results table.
+// null = no list requested yet, so the results section stays hidden.
+$results = null; //stays null until the manager asks for a list
+
+// List of all EOIs: runs when the "List all EOIs" button is clicked
+if (($_GET['action'] ?? '') === 'list-all') {
+    $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+    $result = mysqli_query($conn, "SELECT * FROM eoi");
+    $results = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    mysqli_close($conn);
+}
+
 $page_title = 'Manage EOIs | HireHub';
 $body_class = 'manage-page';
 include 'header.inc';
@@ -49,9 +71,55 @@ include 'header.inc';
         <form method="post">
             <label for="eoiNumber">EOI number</label>
             <input id="eoiNumber" name="eoiNumber" type="number">
+        </form>
+    </section>
 
+    <?php if ($results !== null): ?>
+        <section>
+            <h2>Results (<?php echo count($results); ?>)</h2>
 
+            <?php if (empty($results)): ?>
+                <p>No EOIs found.</p>
+            <?php else: ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>EOI #</th>
+                            <th>Job ref</th>
+                            <th>First name</th>
+                            <th>Last name</th>
+                            <th>Date of birth</th>
+                            <th>Gender</th>
+                            <th>Address</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Skills</th>
+                            <th>Other skills</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($results as $row): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['EOInumber']); ?></td>
+                                <td><?php echo htmlspecialchars($row['jobRef']); ?></td>
+                                <td><?php echo htmlspecialchars($row['firstName']); ?></td>
+                                <td><?php echo htmlspecialchars($row['lastName']); ?></td>
+                                <td><?php echo htmlspecialchars($row['dob']); ?></td>
+                                <td><?php echo htmlspecialchars($row['gender']); ?></td>
+                                <td><?php echo htmlspecialchars($row['streetAddress'] . ', ' . $row['suburb'] . ' ' . $row['state'] . ' ' . $row['postcode']); ?></td>
+                                <td><?php echo htmlspecialchars($row['email']); ?></td>
+                                <td><?php echo htmlspecialchars($row['phoneNum']); ?></td>
+                                <td><?php echo htmlspecialchars($row['skills'] ?? ''); ?></td>
+                                <td><?php echo htmlspecialchars($row['otherSkills'] ?? ''); ?></td>
+                                <td><?php echo htmlspecialchars($row['status']); ?></td>
+                             </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        </section>
+    <?php endif; ?>
 
-    
 </main>
 <?php include 'footer.inc'; ?>
