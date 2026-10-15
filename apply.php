@@ -17,7 +17,7 @@ include 'header.inc';
             <legend class="legend-spaced">Job Reference</legend>
             <p>
                 <label for="jobRef">Job Reference Number *</label>
-                <input type="text" id="jobRef" name="jobRef" pattern="[A-Za-z0-9]{6}" required title="Must be exactly 6 letters and/or numbers, e.g. AB1234">
+                <input type="text" id="jobRef" name="jobRef" value="<?php echo htmlspecialchars($_POST['jobRef'] ?? '')?>" required>
             </p>
         </fieldset>
 
