@@ -77,7 +77,7 @@ include 'header.inc';
             </p>
             <p>
               <label for="suburb">Suburb *</label>
-              <input type="text" id="suburb" name="suburb" pattern="[A-Za-z0-9]{2,40}" title="Please enter a valid suburb" required>
+              <input type="text" id="suburb" name="suburb" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required>
             </p>
             <p>
               <label for="state">State *</label>
@@ -95,7 +95,7 @@ include 'header.inc';
             </p>
             <p>
               <label for="postcode">Postcode * </label>
-              <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" required>
+              <input type="text" id="postcode" name="postcode" value="<?php echo htmlspecialchars($_POST[postcode] ?? ''); ?>" required>
             </p>
         </fieldset>
 
