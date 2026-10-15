@@ -97,7 +97,7 @@ include 'header.inc';
             </p>
             <p>
               <label for="postcode">Postcode * </label>
-              <input type="text" id="postcode" name="postcode" value="<?php echo htmlspecialchars($_POST[postcode] ?? ''); ?>" required>
+              <input type="text" id="postcode" name="postcode" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required>
             </p>
         </fieldset>
 
@@ -108,7 +108,7 @@ include 'header.inc';
 
         <p>
             <label for="skill1">Adaptability</label> 
-        <input type="checkbox" id="skill1" name="skills[]" value="adaptabilty" <?php echo in_array('adaptability', $checkedSkills) ? 'checked' : ''; ?>>
+        <input type="checkbox" id="skill1" name="skills[]" value="adaptability" <?php echo in_array('adaptability', $checkedSkills) ? 'checked' : ''; ?>>
         <label for="skill2">Communication</label> 
         <input type="checkbox" id="skill2" name="skills[]" value="communication" <?php echo in_array('communication', $checkedSkills) ? 'checked' : ''; ?>>
         <label for="skill3">Problem-Solving</label> 
