@@ -37,12 +37,12 @@ include 'header.inc';
             <p>
                 <label for="dob">Date of Birth *</label>
                 <!-- GenAI (Claude) suggested adding inputmode="numeric" to trigger a numeric keypad on mobile devices for this date field -->
-                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" pattern="[0-9]{2}/[0-9]{2}/[0-9]{4}" inputmode="numeric" title="Please enter a valid date of birth" required>
+                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" inputmode="numeric" required>
             </p>
             
             <p>
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" inputmode="email" title="Please enter your email" required>
+                <input type="email" id="email" name="email" inputmode="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
             </p>
 
             <p>
