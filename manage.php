@@ -18,10 +18,29 @@ $results = null;
 // Message to show if the search form is filled in the wrong way
 $error = '';
 
+// Sort fields the manager can choose from: column name => label shown in the dropdown.
+// Column names can't be sent as ? placeholders, so the chosen value is checked against this list instead (the whitelist). Anything else falls back to EOI number.
+$sortFields = [
+    'EOInumber' => 'EOI number',
+    'jobRef' => 'Job reference',
+    'firstName' => 'First name',
+    'lastName' => 'Last name',
+    'status' => 'Status',
+];
+
+// Reads the chosen sort field. If it's missing or not in the list, sorts by EOI number.
+$sort = $_GET['sort'] ?? 'EOInumber';
+if (!array_key_exists($sort, $sortFields)) {
+    $sort = 'EOInumber';
+}
+
+
+
+
 // List of all EOIs: runs when the "List all EOIs" button is clicked
 if (($_GET['action'] ?? '') === 'list-all') {
     $conn = mysqli_connect($host, $user, $pwd, $sql_db);
-    $result = mysqli_query($conn, "SELECT * FROM eoi");
+    $result = mysqli_query($conn, "SELECT * FROM eoi ORDER BY $sort");
     $results = mysqli_fetch_all($result, MYSQLI_ASSOC);
     mysqli_close($conn);
 }
@@ -60,7 +79,7 @@ if (($_GET['action'] ?? '') === 'filter') {
                 $params[] = $lastName;
             }
 
-            $query = "SELECT * FROM eoi WHERE " . implode(' AND ', $conditions);
+            $query = "SELECT * FROM eoi WHERE " . implode(' AND ', $conditions) . " ORDER BY $sort";
 
             $conn = mysqli_connect($host, $user, $pwd, $sql_db);
             
@@ -87,6 +106,12 @@ include 'header.inc';
         <h2>List EOIs</h2>
         <!-- 𝗧𝗢𝗗𝗢: Add the form control that lists all EOIs. -->
         <form method="get">
+            <label for="sortAll">Sort by</label>
+            <select id="sortAll" name="sort">
+                <?php foreach ($sortFields as $column => $label): ?>
+                    <option value="<?php echo $column; ?>" <?php if ($column === $sort) echo 'selected'; ?>><?php echo $label; ?></option>
+                <?php endforeach; ?>
+            </select>
             <button type="submit" name="action" value="list-all">List all EOIs</button>
         </form>
     </section>
@@ -103,6 +128,13 @@ include 'header.inc';
 
             <label for="lastName">Applicant last name</label>
             <input id="lastName" name="lastName">
+
+            <label for="sortFilter">Sort by</label>
+            <select id="sortFilter" name="sort">
+                <?php foreach ($sortFields as $column => $label): ?>
+                    <option value="<?php echo $column; ?>" <?php if ($column === $sort) echo 'selected'; ?>><?php echo $label; ?></option>
+                <?php endforeach; ?>
+            </select>
 
             <button type="submit" name="action" value="filter">Search EOIs</button>
         </form>
