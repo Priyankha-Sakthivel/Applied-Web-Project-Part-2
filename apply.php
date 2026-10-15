@@ -47,7 +47,7 @@ include 'header.inc';
 
             <p>
                 <label for="phoneNum">Phone Number *</label>
-                <input type="text" id="phoneNum" name="phoneNum" pattern="[0-9]{8,12}" maxlength="12" inputmode="tel" title="Please enter your phone number" required>
+                <input type="text" id="phoneNum" name="phoneNum" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required>
             </p>
 
         </fieldset>
@@ -73,7 +73,7 @@ include 'header.inc';
             <legend>Address</legend>
             <p>
             <label for="streetAddress">Street Address *</label>
-            <input type="text" id="streetAddress" name="streetAddress" pattern="[A-Za-z0-9\s.,#'-]{2,40}" title="Please enter a valid street address" required>
+            <input type="text" id="streetAddress" name="streetAddress" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required>
             </p>
             <p>
               <label for="suburb">Suburb *</label>
