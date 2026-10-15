@@ -57,16 +57,16 @@ include 'header.inc';
             <?php $checkedGender = $_POST['gender'] ?? ''; ?>
             <p>
                 <label for="gender1">Male</label>
-                <input type="radio" id="gender1" name="gender" value="Male" <?php echo (checkedGender == 'Male') ? 'checked' : ''; ?> required>
+                <input type="radio" id="gender1" name="gender" value="Male" <?php echo ($checkedGender == 'Male') ? 'checked' : ''; ?> required>
                  
                 <label for="gender2">Female</label>
-                <input type="radio" id="gender2" name="gender" value="Female" <?php echo (checkedGender == 'Female') ? 'checked' : ''; ?>>
+                <input type="radio" id="gender2" name="gender" value="Female" <?php echo ($checkedGender == 'Female') ? 'checked' : ''; ?>>
 
                 <label for="gender3">Other</label>
-                <input type="radio" id="gender3" name="gender" value="Other" <?php echo (checkedGender == 'Other') ? 'checked' : ''; ?>>
+                <input type="radio" id="gender3" name="gender" value="Other" <?php echo ($checkedGender == 'Other') ? 'checked' : ''; ?>>
 
                 <label for="gender4">Prefer not to say</label>
-                <input type="radio" id="gender4" name="gender" value="Prefer not to say" <?php echo (checkedGender == 'Prefer not to say') ? 'checked' : ''; ?>>
+                <input type="radio" id="gender4" name="gender" value="Prefer not to say" <?php echo ($checkedGender == 'Prefer not to say') ? 'checked' : ''; ?>>
             </p>
         </fieldset>
          
