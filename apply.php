@@ -81,16 +81,17 @@ include 'header.inc';
             </p>
             <p>
               <label for="state">State *</label>
+              <?php $checkedState = $_POST['state'] ?? ''; ?>
               <select id="state" name="state" required>
                 <option value="" selected disabled>Select a state</option>
-                <option value="VIC">VIC</option>
-                <option value="NSW">NSW</option>
-                <option value="QLD">QLD</option>
-                <option value="NT">NT</option>
-                <option value="WA">WA</option>
-                <option value="SA">SA</option>
-                <option value="TAS">TAS</option>
-                <option value="ACT">ACT</option>
+                <option value="VIC" <?php echo ($selectedState == 'VIC') ? 'selected' : ''; ?>>VIC</option>
+                <option value="NSW" <?php echo ($selectedState == 'NSW') ? 'selected' : ''; ?>>NSW</option>
+                <option value="QLD" <?php echo ($selectedState == 'QLD') ? 'selected' : ''; ?>>QLD</option>
+                <option value="NT" <?php echo ($selectedState == 'NT') ? 'selected' : ''; ?>>NT</option>
+                <option value="WA" <?php echo ($selectedState == 'WA') ? 'selected' : ''; ?>>WA</option>
+                <option value="SA" <?php echo ($selectedState == 'SA') ? 'selected' : ''; ?>>SA</option>
+                <option value="TAS" <?php echo ($selectedState == 'TAS') ? 'selected' : ''; ?>>TAS</option>
+                <option value="ACT" <?php echo ($selectedState == 'ACT') ? 'selected' : ''; ?>>ACT</option>
               </select>
             </p>
             <p>
