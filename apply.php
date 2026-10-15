@@ -104,7 +104,7 @@ include 'header.inc';
        <fieldset>
         <legend> Skills </legend>
 
-        <?php $checkedSkills = $_POST['skills'] ?? ['adaptability'];
+        <?php $checkedSkills = $_POST['skills'] ?? ['adaptability']; ?>
 
         <p>
             <label for="skill1">Adaptability</label> 
