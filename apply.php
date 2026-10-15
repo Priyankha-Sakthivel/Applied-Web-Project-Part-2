@@ -17,7 +17,7 @@ include 'header.inc';
             <legend class="legend-spaced">Job Reference</legend>
             <p>
                 <label for="jobRef">Job Reference Number *</label>
-                <input type="text" id="jobRef" name="jobRef" value="<?php echo htmlspecialchars($_POST['jobRef'] ?? '')?>" required>
+                <input type="text" id="jobRef" name="jobRef" value="<?php echo htmlspecialchars($_POST['jobRef'] ?? ''); ?>" required>
             </p>
         </fieldset>
 
@@ -26,12 +26,12 @@ include 'header.inc';
        
             <p>
                 <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]{1,20}" title="Please enter a valid first name" required>
+                <input type="text" id="firstName" name="firstName" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required>
             </p>
 
             <p>
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]{1,20}" title="Please enter a valid last name" required>
+                <input type="text" id="lastName" name="lastName" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required>
             </p>
 
             <p>
