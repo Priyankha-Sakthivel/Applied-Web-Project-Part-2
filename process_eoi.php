@@ -117,7 +117,7 @@ if (!preg_match('/^[0-9]{8,12}$/', $phoneNum)) {
 
 // Validate selected skills
 $allowedSkills = [
-    'adaptabilty',
+    'adaptability',
     'communication',
     'problem-solving',
     'time_Management',
