@@ -104,22 +104,24 @@ include 'header.inc';
        <fieldset>
         <legend> Skills </legend>
 
+        <?php $checkedSkills = $_POST['skills'] ?? ['adaptability'];
+
         <p>
             <label for="skill1">Adaptability</label> 
-        <input type="checkbox" id="skill1" name="skills[]" value="adaptabilty" checked="checked">
+        <input type="checkbox" id="skill1" name="skills[]" value="adaptabilty" <?php echo in_array('adaptability', $checkedSkills) ? 'checked' : ''; ?>>
         <label for="skill2">Communication</label> 
-        <input type="checkbox" id="skill2" name="skills[]" value="communication">
+        <input type="checkbox" id="skill2" name="skills[]" value="communication" <?php echo in_array('communication', $checkedSkills) ? 'checked' : ''; ?>>
         <label for="skill3">Problem-Solving</label> 
-        <input type="checkbox" id="skill3" name="skills[]" value="problem-solving">
+        <input type="checkbox" id="skill3" name="skills[]" value="problem-solving" <?php echo in_array('problem-solving', $checkedSkills) ? 'checked' : ''; ?>>
         <label for="skill4">Time Management</label> 
-        <input type="checkbox" id="skill4" name="skills[]" value="time_Management">
+        <input type="checkbox" id="skill4" name="skills[]" value="time_Management" <?php echo in_array('time_Management', $checkedSkills) ? 'checked' : ''; ?>>
         <label for="skill5">Conflict Resolution</label> 
-        <input type="checkbox" id="skill5" name="skills[]" value="conflict_resolution">
+        <input type="checkbox" id="skill5" name="skills[]" value="conflict_resolution" <?php echo in_array('conflict_resolution', $checkedSkills) ? 'checked' : ''; ?>>
       </p>
 
         <p>
             <label for="otherSkills">Other Skills</label><br>
-            <textarea id="otherSkills" name="otherSkills" rows="4" cols="40" placeholder="Write about your skills here..."></textarea>    
+            <textarea id="otherSkills" name="otherSkills" rows="4" cols="40" placeholder="Write about your skills here..."><?php echo htmlspecialchars($_POST['otherSkills'] ?? ''); ?></textarea>    
        </p>
       </fieldset>
 
