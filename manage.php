@@ -15,8 +15,15 @@ require_once 'settings.php';
 // null = no list requested yet, so the results section stays hidden.
 $results = null; 
 
-// Message to show if the search form is filled in the wrong way
+// Error message to show if a form is filled in wrongly
 $error = '';
+
+// Message to show after a change is made, e.g "EOI 3 status changed to Final."
+$message = '';
+
+// The only statuses an EOI can have (matches the ENUM in the EOI table)
+$validStatuses = ['New', 'Current', 'Final'];
+
 
 // Sort fields the manager can choose from: column name => label shown in the dropdown.
 // Column names can't be sent as ? placeholders, so the chosen value is checked against this list instead (the whitelist). Anything else falls back to EOI number.
@@ -33,9 +40,6 @@ $sort = $_GET['sort'] ?? 'EOInumber';
 if (!array_key_exists($sort, $sortFields)) {
     $sort = 'EOInumber';
 }
-
-
-
 
 // List of all EOIs: runs when the "List all EOIs" button is clicked
 if (($_GET['action'] ?? '') === 'list-all') {
@@ -94,7 +98,42 @@ if (($_GET['action'] ?? '') === 'filter') {
             mysqli_close($conn);
         }
     }
-    
+
+// Change EOI status: runs when "Update status" is clicked.
+// Using POST in this form because it changes data in the database.
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'update-status') {
+    // Check the EOI number is a whole number of 1 or more. filter_var returns false if not.
+    $eoiNumber = filter_var($_POST['eoiNumber'] ?? '', FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $status = $_POST['status'] ?? '';
+
+    if ($eoiNumber === false) {
+        $error = 'Please enter a valid EOI number.';
+    } elseif (!in_array($status, $validStatuses, true)) {
+        // Only New, Current or Final are allowed
+        $error = 'Please choose a valid status.';
+    } else {
+        $conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+        // Prepared statement: 's' = string (the status), 'i' = integer (the EOI number)
+        $stmt = mysqli_prepare($conn, "UPDATE eoi SET status = ? WHERE EOInumber = ?");
+        mysqli_stmt_bind_param($stmt, 'si', $status, $eoiNumber);
+        mysqli_stmt_execute($stmt);
+
+        // affected_rows is how many rows actually changed.
+        // 0 means the EOI doesn't exist, or it already had that status.
+        if (mysqli_stmt_affected_rows($stmt) > 0) {
+            $message = "EOI $eoiNumber status changed to $status.";
+        } else {
+            $error = "No change made: EOI $eoiNumber doesn't exist or already has the status $status.";
+        }
+
+        mysqli_stmt_close($stmt);
+        mysqli_close($conn);
+    }
+}
+
+
+
 $page_title = 'Manage EOIs | HireHub';
 $body_class = 'manage-page';
 include 'header.inc';
@@ -104,7 +143,6 @@ include 'header.inc';
 
     <section>
         <h2>List EOIs</h2>
-        <!-- 𝗧𝗢𝗗𝗢: Add the form control that lists all EOIs. -->
         <form method="get">
             <label for="sortAll">Sort by</label>
             <select id="sortAll" name="sort">
@@ -118,7 +156,6 @@ include 'header.inc';
 
     <section>
         <h2>Filter EOIs</h2>
-        <!-- 𝗧𝗢𝗗𝗢: Implement filtering by job reference and applicant first/last name. -->
         <form method="get">
             <label for="jobRef">Job reference</label>
             <input id="jobRef" name="jobRef">
@@ -152,12 +189,25 @@ include 'header.inc';
 
     <section>
         <h2>Change EOI status</h2>
-        <!-- 𝗧𝗢𝗗𝗢: Implement status updates using a prepared statement and validate allowed values. -->
         <form method="post">
             <label for="eoiNumber">EOI number</label>
             <input id="eoiNumber" name="eoiNumber" type="number">
+
+            <label for="status">New status</label>
+            <select id="status" name="status">
+                <?php foreach ($validStatuses as $option): ?>
+                    <option value="<?php echo $option; ?>"><?php echo $option; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <button type="submit" name="action" value="update-status">Update status</button>
         </form>
     </section>
+
+    <!-- Success message, e.g. after an EOI's status is changed -->
+    <?php if ($message !== ''): ?>
+        <p><?php echo htmlspecialchars($message); ?></p>
+    <?php endif; ?>
 
     <!-- Search error message, e.g. if the search form was left empty -->
     <?php if ($error !== ''): ?>
