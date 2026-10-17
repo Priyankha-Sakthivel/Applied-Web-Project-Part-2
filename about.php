@@ -19,22 +19,27 @@ if ($conn) {
 		<?php if (!$conn) { ?>
 			<p>Sorry, the team information is currently unavailable. Please try again later.</p>
 		<?php } else { ?>
-		<section class="team-details">
-			<h2>Team Details</h2>
-			<ul>
-				<li>Group name:
-					<ul>
-						<li>WebDevs </li>
-					</ul>
-				</li>
-				<li>Tutorial class:
-					<ul>
-						<li>Wednesday</li>
-						<li>2:30pm-4:30pm</li>
-					</ul>
-				</li>
-			</ul>
-		</section>
+		<?php
+		// Group details, read once and reused for the team details and the photo
+		$result= mysqli_query($conn, "SELECT * FROM about_group");
+        $group = mysqli_fetch_assoc($result);
+        ?>
+        <section class="team-details">
+            <h2>Team Details</h2>
+            <ul>
+                <li>Group name:
+                    <ul>
+                        <li><?php echo htmlspecialchars($group['group_name']); ?></li>
+                    </ul>
+                </li>
+                <li>Tutorial class:
+                    <ul>
+                        <li><?php echo htmlspecialchars($group['class_day']); ?></li>
+                        <li><?php echo htmlspecialchars($group['class_time']); ?></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
 
 		<section>
 			<h2>Member Contributions</h2>
