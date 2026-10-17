@@ -13,7 +13,6 @@ if ($conn) {
 	mysqli_set_charset($conn, "utf8mb4");
 }
 ?>
-	<?php } ?>
 	<main>
 		<h1 class="page-title-spaced">About the Team</h1>
 		<?php if (!$conn) { ?>
@@ -107,6 +106,8 @@ if ($conn) {
                 </tbody>
             </table>
         </section>
+		<?php mysqli_close($conn); ?>
+		<?php } ?>
 	</main>
 
 <?php include 'footer.inc'; ?>
