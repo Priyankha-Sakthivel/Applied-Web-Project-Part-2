@@ -1,6 +1,5 @@
 <?php
-// about.php - About page: group details, member contributions, quotes, photo and fun facts, all loaded from the database.
-// quotes, group photo and fun facts (made dynamic in a later step).
+// about.php - About page: group details, member contributions, quotes, photo and fun facts, all loaded from the database...
 $page_title = "About the Team | HireHub";
 $body_class = "about-page";
 include 'header.inc';
