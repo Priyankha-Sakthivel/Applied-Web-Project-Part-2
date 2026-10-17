@@ -7,9 +7,10 @@ include 'header.inc';
 <?php
 // Connect to the database (same settings.php used by the other pages)
 require_once "settings.php";
-$conn = @mysqli_connect($host, $user, $pwd, $sql_db);  // @hides the raw php warning if MySQL is down
+mysqli_report(MYSQLI_REPORT_OFF);   // make mysqli_connect return false on failure instead of throwing an error
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);   // @ hides the raw PHP warning if MySQL is down
 if ($conn) {
-	mysqli_set_charset($conn, "utf8mb4");
+    mysqli_set_charset($conn, "utf8mb4");
 }
 ?>
 	<main>
