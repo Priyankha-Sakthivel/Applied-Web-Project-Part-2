@@ -56,36 +56,25 @@ if ($conn) {
                     echo "<dd>There are no members to display.</dd>";
                 }
                 ?>
-			</dl>
-			
+			</dl>	
 		</section>
 
 		<section>
-			<h2>Member Quotes</h2>
-			<blockquote>
-				<p>&ldquo;Work hard, play hard.&rdquo;</p>
-				<cite>Priyankha Sakthivel</cite>
-			</blockquote>
-			<blockquote>
-				<p>&ldquo;Arriver en avance est inacceptable, arriver à l'heure revient à être en retard, et arriver à la dernière minute, c'est être à l'heure.&rdquo;</p>
-				<p>English translation: &ldquo;To be early is unacceptable to be on time is to be late and to be last minute is to be on time.&rdquo;</p>
-				<cite>Dimitri Meric </cite>
-			</blockquote>
-			<blockquote>
-				<p>&ldquo;If it works, don't ask too many questions.&rdquo;</p>
-				<cite>Thomas Mathew </cite>
-			</blockquote>
-            			<blockquote>
-				<p>&ldquo;大家好&rdquo;</p>
-				<p>English translation: &ldquo;Hello Everyone.&rdquo;</p>
-				<cite>Kevin Tan </cite>
-			</blockquote>
-            			<blockquote>
-				<p>&ldquo;石の上にも三年(Ishi no ue ni mo san nen).&rdquo;</p>
-				<p>English translation: &ldquo;Perseverance changes things.&rdquo;</p>
-				<cite>Mark Leirum </cite>
-			</blockquote>
-		</section>
+            <h2>Member Quotes</h2>
+            <?php
+            $result = mysqli_query($conn, "SELECT full_name, quote, quote_translation FROM members ORDER BY member_id");
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "<blockquote>";
+                echo "<p>&ldquo;" . htmlspecialchars($row['quote']) . "&rdquo;</p>";
+                if (!empty($row['quote_translation'])) {
+                    echo "<p>English translation: &ldquo;" . htmlspecialchars($row['quote_translation']) . "&rdquo;</p>";
+                }
+                echo "<cite>" . htmlspecialchars($row['full_name']) . "</cite>";
+                echo "</blockquote>";
+            }
+            ?>
+        </section>
+
 		<section>
 			<h2>Meet the team</h2>
 			<figure>
