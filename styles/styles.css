@@ -374,23 +374,6 @@ nav a.active {
     background-color: #f4f7f9;
 }
 
-.about-page header {
-    background-color: #14324a;
-    color: white;
-    padding: 20px;
-}
-
-.about-page header img {
-    width: 100px;
-    height: auto;
-    vertical-align: middle;
-}
-
-.about-page header a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-}
 
 .about-page nav ul {
     list-style: none;
