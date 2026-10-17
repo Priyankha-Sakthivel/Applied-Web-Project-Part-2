@@ -147,27 +147,6 @@ nav a.active {
     border-radius: 8px;
 }
 
-.jobs-page nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0;
-}
-
-.jobs-page nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.jobs-page nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.jobs-page nav a:hover {
-    text-decoration: underline;
-}
-
 
 @media screen and (max-width: 800px) {
 
