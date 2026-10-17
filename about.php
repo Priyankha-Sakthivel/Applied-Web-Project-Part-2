@@ -84,40 +84,29 @@ if ($conn) {
             </figure>
         </section>
 		
-		<section>
-			<h2>Fun Facts</h2>
-			<table>
-				<caption>Fun facts about the team</caption>
-				<thead>
-					<tr>
-						<th scope="col">Member</th>
-						<th scope="col">Fun fact</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<th scope="row">Priyankha Sakthivel</th>
-						<td>Always has a book on the go.</td>
-					</tr>
-					<tr>
-						<th scope="row">Dimitri Meric</th>
-						<td>I'm french, you can make fun of me now</td>
-					</tr>
-					<tr>
-						<th scope="row">Thomas Mathew </th>
-						<td>Professional last-minute problem solver.</td>
-					</tr>
-                    					<tr>
-						<th scope="row">Kevin Tan </th>
-						<td>My left hand fingers are longer than my right.</td>
-					</tr>
-                    					<tr>
-						<th scope="row">Mark Leirum </th>
-						<td>Can either be found sleeping or running around, no inbetween.</td>
-					</tr>
-				</tbody>
-			</table>
-		</section>
+		        <section>
+            <h2>Fun Facts</h2>
+            <table>
+                <caption>Fun facts about the team</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Member</th>
+                        <th scope="col">Fun fact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $result = mysqli_query($conn, "SELECT full_name, fun_fact FROM members ORDER BY member_id");
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<th scope=\"row\">" . htmlspecialchars($row['full_name']) . "</th>";
+                        echo "<td>" . htmlspecialchars($row['fun_fact']) . "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </section>
 	</main>
 
 <?php include 'footer.inc'; ?>
