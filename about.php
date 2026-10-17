@@ -44,18 +44,22 @@ if ($conn) {
 		<section>
 			<h2>Member Contributions</h2>
 			<dl>
-				<dt>Priyankha Sakthivel</dt>
-				<dd>Apply page & corresponding CSS</dd>
-				<dt>Dimitri Meric</dt>
-				<dd>Home page & corresponding CSS</dd>
-				<dt>Thomas Mathew</dt>
-				<dd>Jobs Page & corresponding CSS</dd>
-                <dt>Kevin Tan </dt>
-				<dd>Apply Page & corresponding CSS</dd>
-                <dt>Mark Leirum </dt>
-				<dd>About Page & corresponding CSS</dd>
+			  <?php
+                $result = mysqli_query($conn, "SELECT full_name, part1_work, part2_work FROM members ORDER BY member_id");
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<dt>" . htmlspecialchars($row['full_name']) . "</dt>";
+                        echo "<dd><strong>Project Part 1:</strong> " . htmlspecialchars($row['part1_work']) . "</dd>";
+                        echo "<dd><strong>Project Part 2:</strong> " . htmlspecialchars($row['part2_work']) . "</dd>";
+                    }
+                } else {
+                    echo "<dd>There are no members to display.</dd>";
+                }
+                ?>
 			</dl>
+			
 		</section>
+
 		<section>
 			<h2>Member Quotes</h2>
 			<blockquote>
