@@ -165,13 +165,6 @@ nav a.active {
 
 
 /* ===== START OF KEVIN - APPLY PAGE CSS =====  */
-.apply-page header {
-    background-color: #14324a;
-    color: white;
-    padding: 20px;
-}
-
-
 .apply-page nav ul li {
     display: inline;
     margin-right: 20px;
@@ -203,10 +196,6 @@ nav a.active {
     font-weight: bold;
 }
 
-.apply-page header img {
-    width: 100px;
-    height: auto;
-}
 
 .apply-page h1 {
     margin-bottom: 10px;
