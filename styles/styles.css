@@ -53,6 +53,26 @@ header .brand {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+/* ---- SHARED NAV (all pages) ---- */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
 /* ---- SHARED FOOTER (all pages) ---- */
 footer {
     background-color: #14324a;
