@@ -1,4 +1,5 @@
 <?php
+// index.php - Home page: hero, partner logos, office locations table and acknowledgement of Country.
 $page_title = "HireHub | Travel & Tourism Careers";
 $body_class = "home-page";
 include 'header.inc';
