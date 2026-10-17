@@ -371,27 +371,6 @@ nav a.active {
   margin-bottom: 0;
 }
 
-/*Home page: footer*/
-
-.home-page footer {
-  background-color: #14324a;
-  color: white;
-  text-align: center;
-  padding: 30px 20px;
-  margin-top: 40px;
-}
-
-.home-page footer a {
-  color: white;
-}
-
-.home-page footer p {
-  margin-bottom: 8px;
-}
-
-.home-page footer p:last-child {
-  margin-bottom: 0;
-}
 /* Responsive adjustments for smaller screens */
 @media screen and (max-width: 700px) {
     .home-page {
