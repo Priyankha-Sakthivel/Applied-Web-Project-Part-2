@@ -374,28 +374,6 @@ nav a.active {
     background-color: #f4f7f9;
 }
 
-
-.about-page nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0;
-}
-
-.about-page nav li {
-    display: inline;
-    margin-right: 20px;
-}
-
-.about-page nav a {
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.about-page nav a:hover {
-    text-decoration: underline;
-}
-
 .about-page main {
     width: 90%;
     max-width: 1000px;
