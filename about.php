@@ -1,5 +1,5 @@
 <?php
-// about.php - About page for the HireHub project: team details, contributions,
+// about.php - About page: group details, member contributions, quotes, photo and fun facts, all loaded from the database.
 // quotes, group photo and fun facts (made dynamic in a later step).
 $page_title = "About the Team | HireHub";
 $body_class = "about-page";
@@ -84,7 +84,7 @@ if ($conn) {
             </figure>
         </section>
 		
-		        <section>
+		<section>
             <h2>Fun Facts</h2>
             <table>
                 <caption>Fun facts about the team</caption>
