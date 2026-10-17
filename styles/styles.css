@@ -147,17 +147,6 @@ nav a.active {
     border-radius: 8px;
 }
 
-.jobs-page header {
-    background-color: #14324a;
-    color: white;
-    padding: 20px;
-}
-
-.jobs-page header img {
-    width: 90px;
-    height: auto;
-}
-
 .jobs-page nav ul {
     list-style: none;
     padding: 0;
