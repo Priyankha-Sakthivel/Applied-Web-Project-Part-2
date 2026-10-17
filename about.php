@@ -13,8 +13,12 @@ if ($conn) {
 	mysqli_set_charset($conn, "utf8mb4");
 }
 ?>
+	<?php } ?>
 	<main>
 		<h1 class="page-title-spaced">About the Team</h1>
+		<?php if (!$conn) { ?>
+			<p>Sorry, the team information is currently unavailable. Please try again later.</p>
+		<?php } else { ?>
 		<section class="team-details">
 			<h2>Team Details</h2>
 			<ul>
