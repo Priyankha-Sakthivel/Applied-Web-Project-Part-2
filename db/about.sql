@@ -18,6 +18,9 @@ CREATE TABLE members (
     fun_fact VARCHAR(255)
 ) DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO about_group (group_name, class_day, class_time, photo_path, photo_alt, photo_caption) VALUES
+('WebDevs', 'Wednesday', '2:30pm-4:30pm', 'images/group_photo.jpg', 'WebDevs team group photo, photo collage of five members', 'WebDevs Group');
+
 -- about.sql - tables for the dynamic About page
 SET NAMES utf8mb4;
 
