@@ -8,6 +8,15 @@ CREATE TABLE about_group (
     photo_caption VARCHAR(100) NOT NULL
 ) DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE members (
+    member_id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    part1_work TEXT NOT NULL,
+    part2_work TEXT NOT NULL,
+    quote TEXT,
+    quote_translation TEXT,
+    fun_fact VARCHAR(255)
+) DEFAULT CHARSET=utf8mb4;
 
 -- about.sql - tables for the dynamic About page
 SET NAMES utf8mb4;
