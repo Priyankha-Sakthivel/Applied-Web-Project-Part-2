@@ -242,20 +242,6 @@ nav a.active {
 
 /*Home Page: header and nav*/
 
-.home-page header {
-    background-color: #14324a;
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.home-page header img {
-    width: 100px;
-    height: auto;
-}
-
 .home-page nav ul {
     list-style: none;
     padding: 0;
@@ -274,15 +260,6 @@ nav a.active {
     text-decoration: underline;
 }
 
-.home-page .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
-}
 
 /*Homepage: Hero*/
 
