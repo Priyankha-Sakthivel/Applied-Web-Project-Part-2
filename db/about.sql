@@ -1,3 +1,10 @@
+-- about.sql - tables for the dynamic About page
+SET NAMES utf8mb4;
+
+DROP TABLE IF EXISTS contributions;
+DROP TABLE IF EXISTS members;
+DROP TABLE IF EXISTS about_group;
+
 CREATE TABLE about_group (
     id INT AUTO_INCREMENT PRIMARY KEY,
     group_name VARCHAR(100) NOT NULL,
@@ -45,10 +52,3 @@ INSERT INTO members (full_name, part1_work, part2_work, quote, quote_translation
     'users table, login page with authentication, and the first version of manage.php.',
     '石の上にも三年 (Ishi no ue ni mo san nen).', 'Perseverance changes things.',
     'Can either be found sleeping or running around, no inbetween.');
-
--- about.sql - tables for the dynamic About page
-SET NAMES utf8mb4;
-
-DROP TABLE IF EXISTS contributions;
-DROP TABLE IF EXISTS members;
-DROP TABLE IF EXISTS about_group;
