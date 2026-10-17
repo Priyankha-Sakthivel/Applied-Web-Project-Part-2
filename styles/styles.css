@@ -240,18 +240,6 @@ nav a.active {
   background-size: 300px 100%, 300px 100%;
 }
 
-/*Home Page: header and nav*/
-
-.home-page nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-}
-
-
-/*Homepage: Hero*/
 
 .home-page .hero {
   background: linear-gradient(135deg, #14324a 0%, #1f4b6d 60%, #2f6690 100%);
@@ -376,12 +364,6 @@ nav a.active {
     .home-page {
         background-size: 60px 100%, 60px 100%;
     }
-    .home-page header {
-        flex-direction: column;
-        gap: 10px;
-        text-align: center;
-    }
-    
 }
 /* ===== END OF DIMITRI - HOME PAGE CSS ===== */
 
