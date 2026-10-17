@@ -75,13 +75,14 @@ if ($conn) {
             ?>
         </section>
 
-		<section>
-			<h2>Meet the team</h2>
-			<figure>
-				<img src="images/group_photo.jpg" alt="WebDevs team group photo, photo collage of five members" width="900">
-				<figcaption>WebDevs Group</figcaption>
-			</figure>
-		</section>
+		 <section>
+            <h2>Meet the team</h2>
+            <figure>
+                <img src="<?php echo htmlspecialchars($group['photo_path']); ?>"
+                     alt="<?php echo htmlspecialchars($group['photo_alt']); ?>" width="900">
+                <figcaption><?php echo htmlspecialchars($group['photo_caption']); ?></figcaption>
+            </figure>
+        </section>
 		
 		<section>
 			<h2>Fun Facts</h2>
