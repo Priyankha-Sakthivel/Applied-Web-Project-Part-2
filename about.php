@@ -5,6 +5,14 @@ $page_title = "About the Team | HireHub";
 $body_class = "about-page";
 include 'header.inc';
 ?>
+<?php
+// Connect to the database (same settings.php used by the other pages)
+require_once "settings.php";
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);  // @hides the raw php warning if MySQL is down
+if ($conn) {
+	mysqli_set_charset($conn, "utf8mb4");
+}
+?>
 	<main>
 		<h1 class="page-title-spaced">About the Team</h1>
 		<section class="team-details">
