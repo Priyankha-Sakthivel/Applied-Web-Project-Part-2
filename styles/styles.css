@@ -250,16 +250,6 @@ nav a.active {
     gap: 20px;
 }
 
-.home-page nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.home-page nav a:hover {
-    text-decoration: underline;
-}
-
 
 /*Homepage: Hero*/
 
@@ -412,10 +402,7 @@ nav a.active {
         gap: 10px;
         text-align: center;
     }
-    .home-page nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    
 }
 /* ===== END OF DIMITRI - HOME PAGE CSS ===== */
 
