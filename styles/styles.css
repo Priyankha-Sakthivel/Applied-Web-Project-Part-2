@@ -16,11 +16,7 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
     outline: 2px solid #f2a71b;
     outline-offset: 2px;
 }
-/* Shared: highlight whichever nav link matches the current page */
-nav a.active {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-}
+
 /* Shared: gentle fade-in so navigating between pages feels smoother */
 body {
     animation: fadeIn 0.35s ease-in;
