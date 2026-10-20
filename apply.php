@@ -71,7 +71,7 @@ include 'header.inc';
 
             <p>
                 <label for="phoneNum">Phone Number *</label>
-                <input type="text" id="phoneNum" name="phoneNum" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required>
+                <input type="text" id="phoneNum" name="phoneNum" pattern="[0-9]{8,12}" maxlength="12" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required>
             </p>
 
         </fieldset>
