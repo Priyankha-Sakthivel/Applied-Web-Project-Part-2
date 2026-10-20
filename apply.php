@@ -17,7 +17,31 @@ include 'header.inc';
             <legend class="legend-spaced">Job Reference</legend>
             <p>
                 <label for="jobRef">Job Reference Number *</label>
-                <input type="text" id="jobRef" name="jobRef" value="<?php echo htmlspecialchars($_POST['jobRef'] ?? ''); ?>" required>
+                <select id="jobRef" name="jobRef" required>
+                    <option value="" selected disabled> Please select a position</option>
+                <?php 
+                    require_once 'settings.php';
+                    $conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+                
+                if ($conn) {
+                    $query = "SELECT jobRef, title FROM jobs";
+                    $result = mysqli_query($conn, $query);
+                    $checkedJobRef = $_POST['jobRef'] ?? '';
+                    
+                
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $jobRef = htmlspecialchars($row['jobRef']);
+                        $title = htmlspecialchars($row['title']);
+
+                        $selected = ($checkedJobRef == $row['jobRef']) ? 'selected' : '';
+                        echo "<option value= $selected>$jobRef - $title</option>";
+                    }
+
+                    mysqli_free_result($result);
+                    mysqli_close($conn);
+                }
+                ?> 
+                </select>
             </p>
         </fieldset>
 
