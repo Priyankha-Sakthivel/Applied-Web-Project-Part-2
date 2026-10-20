@@ -98,11 +98,11 @@ include 'header.inc';
             <legend>Address</legend>
             <p>
             <label for="streetAddress">Street Address *</label>
-            <input type="text" id="streetAddress" name="streetAddress" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required>
+            <input type="text" id="streetAddress" name="streetAddress" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required>
             </p>
             <p>
               <label for="suburb">Suburb *</label>
-              <input type="text" id="suburb" name="suburb" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required>
+              <input type="text" id="suburb" name="suburb" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required>
             </p>
             <p>
               <label for="state">State *</label>
@@ -121,7 +121,7 @@ include 'header.inc';
             </p>
             <p>
               <label for="postcode">Postcode * </label>
-              <input type="text" id="postcode" name="postcode" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required>
+              <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required>
             </p>
         </fieldset>
 
