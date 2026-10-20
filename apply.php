@@ -50,12 +50,12 @@ include 'header.inc';
        
             <p>
                 <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required>
+                <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required>
             </p>
 
             <p>
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required>
+                <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required>
             </p>
 
             <p>
