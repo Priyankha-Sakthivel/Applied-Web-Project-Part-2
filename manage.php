@@ -316,4 +316,7 @@ include 'header.inc';
     <?php endif; ?>
 
 </main>
-<?php include 'footer.inc'; ?>
+<?php include 'footer.inc'; ?>                        
+
+<!-- Use of the slides, research on the internet, and Ai was were used to make this code. Ai was used speciffically in recommending which steps/sections to do first, 
+correcting mistakes (cross referenced with the internet and slides), as well as general help in regard to production of code i couldn't wrap my head around (Dimitri 106188614) -->
