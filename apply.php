@@ -34,7 +34,7 @@ include 'header.inc';
                         $title = htmlspecialchars($row['title']);
 
                         $selected = ($checkedJobRef == $row['jobRef']) ? 'selected' : '';
-                        echo "<option value= $selected>$jobRef - $title</option>";
+                        echo "<option value=\"$jobRef\" $selected>$jobRef - $title</option>";
                     }
 
                     mysqli_free_result($result);
