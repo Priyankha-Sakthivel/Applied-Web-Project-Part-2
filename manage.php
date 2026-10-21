@@ -3,11 +3,11 @@
 
 session_start();
 
-// TODO - Redirect anyone who isn't logged in to login.php, waiting on Mark to write/let me know which $_SESSION variable does login.php set.
-// if (!isset($_SESSION['NAME_FROM_MARK'])) {
-//     header('Location: login.php');
-//     exit;
-// }
+// Mark: login.php must set this flag to true after successful manager authentication.
+if (($_SESSION['manager_logged_in'] ?? false) !== true) {
+    header('Location: login.php');
+    exit;
+}
 
 require_once 'settings.php';
 
