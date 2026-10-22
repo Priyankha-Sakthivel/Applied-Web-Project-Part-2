@@ -8,7 +8,7 @@ $databaseError = false;
 
 // Connect to the database
 mysqli_report(MYSQLI_REPORT_OFF);
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$conn) {
     http_response_code(500);
