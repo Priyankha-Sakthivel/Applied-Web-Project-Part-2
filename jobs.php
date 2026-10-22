@@ -7,11 +7,24 @@ require_once 'settings.php';
 $databaseError = false;
 
 // Connect to the database
+mysqli_report(MYSQLI_REPORT_OFF);
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$conn) {
     http_response_code(500);
-    $databaseError = true;
+    $page_title = "Jobs | HireHub";
+    $body_class = "jobs-page";
+
+    include 'header.inc';
+    echo '<main>';
+    echo '<h1 class="page-title">Career Opportunities</h1>';
+    echo '<section>';
+    echo '<h2>Jobs Temporarily Unavailable</h2>';
+    echo '<p>Sorry, we could not load the job listings right now. Please try again later.</p>';
+    echo '</section>';
+    echo '</main>';
+    include 'footer.inc';
+    exit;
 }
 
 // Set database character encoding
