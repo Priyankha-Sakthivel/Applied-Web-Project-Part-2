@@ -82,6 +82,21 @@ include 'header.inc';
     <main>
         <h1 class="page-title">Career Opportunities</h1>
 
+        <form action="jobs.php" method="get">
+    <label for="search">Search Jobs:</label>
+
+    <input
+        type="text"
+        id="search"
+        name="search"
+        placeholder="Search jobs..."
+        value="<?php echo displayJobText($search); ?>"
+    >
+
+    <button type="submit">Search</button>
+    <a href="jobs.php">Clear Search</a>
+</form>
+
         <aside>
             <h2>Why Work With Us?</h2>
 
