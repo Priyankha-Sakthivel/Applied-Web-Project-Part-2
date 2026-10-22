@@ -31,7 +31,20 @@ if (!$conn) {
 if (!mysqli_set_charset($conn, 'utf8mb4')) {
     mysqli_close($conn);
     http_response_code(500);
-    exit('Unable to configure the database connection.');
+
+    $page_title = "Jobs | HireHub";
+    $body_class = "jobs-page";
+
+    include 'header.inc';
+    echo '<main>';
+    echo '<h1 class="page-title">Career Opportunities</h1>';
+    echo '<section>';
+    echo '<h2>Jobs Temporarily Unavailable</h2>';
+    echo '<p>Sorry, we could not load the job listings right now. Please try again later.</p>';
+    echo '</section>';
+    echo '</main>';
+    include 'footer.inc';
+    exit;
 }
 
 // Get the search term from the URL
