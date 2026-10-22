@@ -4,13 +4,14 @@
 // Group 02 - Tourism and Travel
 
 require_once 'settings.php';
+$databaseError = false;
 
 // Connect to the database
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
 if (!$conn) {
     http_response_code(500);
-    exit('Unable to connect to the jobs database.');
+    $databaseError = true;
 }
 
 // Set database character encoding
