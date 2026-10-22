@@ -166,6 +166,13 @@ include 'header.inc';
                     <ul>
                         <?php displayJobList($job['preferableRequirements']); ?>
                     </ul>
+
+                    <p>
+    <a href="apply.php?jobRef=<?php echo urlencode($job['jobRef']); ?>"
+       class="apply-button">
+        Apply Now
+    </a>
+</p>
                 </section>
 
             <?php endforeach; ?>
