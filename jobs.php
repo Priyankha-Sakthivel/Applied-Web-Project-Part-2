@@ -20,9 +20,28 @@ if (!mysqli_set_charset($conn, 'utf8mb4')) {
     exit('Unable to configure the database connection.');
 }
 
-// Retrieve all job listings
-$query = "SELECT * FROM jobs ORDER BY jobRef";
-$result = mysqli_query($conn, $query);
+// Get the search term from the URL
+$search = trim($_GET['search'] ?? '');
+
+// Retrieve job listings, filtering when a search term is entered
+if ($search !== '') {
+    $query = "SELECT * FROM jobs
+              WHERE title LIKE ?
+              OR jobRef LIKE ?
+              OR description LIKE ?
+              ORDER BY jobRef";
+
+    $stmt = mysqli_prepare($conn, $query);
+    $searchTerm = '%' . $search . '%';
+
+    mysqli_stmt_bind_param($stmt, "sss", $searchTerm, $searchTerm, $searchTerm);
+    mysqli_stmt_execute($stmt);
+
+    $result = mysqli_stmt_get_result($stmt);
+} else {
+    $query = "SELECT * FROM jobs ORDER BY jobRef";
+    $result = mysqli_query($conn, $query);
+}
 
 if (!$result) {
     mysqli_close($conn);
