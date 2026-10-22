@@ -73,7 +73,22 @@ if ($search !== '') {
 if (!$result) {
     mysqli_close($conn);
     http_response_code(500);
-    exit('Unable to retrieve job listings.');
+
+    $page_title = "Jobs | HireHub";
+    $body_class = "jobs-page";
+
+    include 'header.inc';
+
+    echo '<main>';
+    echo '<h1 class="page-title">Career Opportunities</h1>';
+    echo '<section>';
+    echo '<h2>Jobs Temporarily Unavailable</h2>';
+    echo '<p>Sorry, we could not retrieve the job listings right now. Please try again later.</p>';
+    echo '</section>';
+    echo '</main>';
+
+    include 'footer.inc';
+    exit;
 }
 
 // Store the job records
