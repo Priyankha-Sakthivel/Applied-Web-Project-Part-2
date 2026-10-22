@@ -156,10 +156,10 @@ include 'header.inc';
 
         <?php if (empty($jobs)): ?>
 
-            <section>
-                <h2>No Current Vacancies</h2>
-                <p>There are currently no job opportunities available. Please check back later.</p>
-            </section>
+    <section>
+        <h2>No Current Vacancies</h2>
+        <p>There are currently no job opportunities available. Please check back later.</p>
+    </section>
 
         <?php else: ?>
 
