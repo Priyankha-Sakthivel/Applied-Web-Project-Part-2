@@ -5,6 +5,31 @@
 
 require_once 'settings.php';
 
+// Display validation errors using the normal website layout
+function showApplicationError($message) {
+    http_response_code(400);
+
+    $page_title = "Application Error | HireHub";
+    $body_class = "apply-page";
+
+    include 'header.inc';
+    ?>
+
+    <main>
+        <h1 class="page-title">Application Error</h1>
+
+        <section>
+            <p><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></p>
+            <p>Please check your details and try again.</p>
+            <p><a href="apply.php">Return to Application Form</a></p>
+        </section>
+    </main>
+
+    <?php
+    include 'footer.inc';
+    exit;
+}
+
 // Only accept form submissions using POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: apply.php');
@@ -46,9 +71,8 @@ $requiredFields = [
 
 foreach ($requiredFields as $field => $value) {
     if ($value === '') {
-        http_response_code(400);
-        exit("Error: $field is required.");
-    }
+    showApplicationError("$field is required.");
+}
 }
 
 // Validate job reference: exactly 6 letters or numbers
