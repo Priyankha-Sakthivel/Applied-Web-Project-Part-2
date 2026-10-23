@@ -30,6 +30,31 @@ function showApplicationError($message) {
     exit;
 }
 
+// Display database errors using the normal website layout
+function showDatabaseError($message) {
+    http_response_code(500);
+
+    $page_title = "Database Error | HireHub";
+    $body_class = "apply-page";
+
+    include 'header.inc';
+    ?>
+
+    <main>
+        <h1 class="page-title">Something Went Wrong</h1>
+
+        <section>
+            <p><?php echo htmlspecialchars($message, ENT_QUOTES, 'UTF-8'); ?></p>
+            <p>Please try again later.</p>
+            <p><a href="index.php">Return to Home</a></p>
+        </section>
+    </main>
+
+    <?php
+    include 'footer.inc';
+    exit;
+}
+
 // Only accept form submissions using POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: apply.php');
@@ -165,12 +190,11 @@ if (strlen($otherSkills) > 1000) {
 }
 
 // Connect to the project database
-$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
 
 // Check the connection before running any database queries
 if (!$conn) {
-    http_response_code(500);
-    exit('Error: Unable to connect to the database.');
+    showDatabaseError('Unable to connect to the database.');
 }
 
 // Use UTF-8 for database communication
@@ -252,7 +276,6 @@ $eoiNumber = mysqli_insert_id($conn);
 
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
-
 
 // Display confirmation using the normal HireHub layout
 $page_title = "Application Confirmation | HireHub";
