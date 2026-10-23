@@ -142,6 +142,31 @@ if (strlen($otherSkills) > 1000) {
 // Connect to the project database
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
+// Create the EOI table if it does not already exist
+$createTableQuery = "CREATE TABLE IF NOT EXISTS eoi (
+    EOInumber INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    jobRef VARCHAR(6),
+    firstName VARCHAR(20),
+    lastName VARCHAR(20),
+    dob DATE,
+    gender VARCHAR(20),
+    streetAddress VARCHAR(40),
+    suburb VARCHAR(40),
+    state CHAR(3),
+    postcode CHAR(4),
+    email VARCHAR(255),
+    phoneNum VARCHAR(12),
+    skills TEXT,
+    otherSkills TEXT,
+    status ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
+)";
+
+if (!mysqli_query($conn, $createTableQuery)) {
+    mysqli_close($conn);
+    http_response_code(500);
+    exit('Unable to prepare the application database. Please try again later.');
+}
+
 if (!$conn) {
     http_response_code(500);
     exit('Error: Unable to connect to the database.');
