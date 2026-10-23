@@ -210,7 +210,7 @@ include 'header.inc';
                     </ul>
 
                     <p>
-    <a href="apply.php?jobRef=<?php echo urlencode($job['jobRef']); ?>"
+    <a href="apply.php?job=<?php echo urlencode($job['jobRef']); ?>"
        class="apply-button">
         Apply Now
     </a>
