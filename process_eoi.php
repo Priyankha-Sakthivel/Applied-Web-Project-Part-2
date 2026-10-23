@@ -1,3 +1,4 @@
+
 <?php
 // Task 3: Process job applications
 // Group 02 - Tourism and Travel
@@ -142,6 +143,19 @@ if (strlen($otherSkills) > 1000) {
 // Connect to the project database
 $conn = mysqli_connect($host, $user, $pwd, $sql_db);
 
+// Check the connection before running any database queries
+if (!$conn) {
+    http_response_code(500);
+    exit('Error: Unable to connect to the database.');
+}
+
+// Use UTF-8 for database communication
+if (!mysqli_set_charset($conn, 'utf8mb4')) {
+    mysqli_close($conn);
+    http_response_code(500);
+    exit('Error: Unable to configure the database connection.');
+}
+
 // Create the EOI table if it does not already exist
 $createTableQuery = "CREATE TABLE IF NOT EXISTS eoi (
     EOInumber INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -165,18 +179,6 @@ if (!mysqli_query($conn, $createTableQuery)) {
     mysqli_close($conn);
     http_response_code(500);
     exit('Unable to prepare the application database. Please try again later.');
-}
-
-if (!$conn) {
-    http_response_code(500);
-    exit('Error: Unable to connect to the database.');
-}
-
-// Use UTF-8 for database communication
-if (!mysqli_set_charset($conn, 'utf8mb4')) {
-    mysqli_close($conn);
-    http_response_code(500);
-    exit('Error: Unable to configure the database connection.');
 }
 
 // Convert selected skills into a string
@@ -249,4 +251,3 @@ mysqli_close($conn);
     <p><a href="index.php">Return to Home</a></p>
 </body>
 </html>
-
