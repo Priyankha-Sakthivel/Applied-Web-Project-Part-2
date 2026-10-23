@@ -253,25 +253,37 @@ $eoiNumber = mysqli_insert_id($conn);
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
 
-// Display confirmation after successful submission
+
+// Display confirmation using the normal HireHub layout
+$page_title = "Application Confirmation | HireHub";
+$body_class = "apply-page";
+
+include 'header.inc';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Application Confirmation</title>
-</head>
-<body>
-    <h1>Application Submitted Successfully!</h1>
 
-    <p>Thank you for submitting your application.</p>
+<main>
+    <h1 class="page-title">Application Submitted Successfully!</h1>
 
-    <p>Your EOI reference number is:
-        <strong><?php echo htmlspecialchars((string)$eoiNumber); ?></strong>
-    </p>
+    <section>
+        <h2>Thank You for Applying</h2>
 
-    <p>Your application status is: New</p>
+        <p>Your application has been submitted successfully.</p>
 
-    <p><a href="index.php">Return to Home</a></p>
-</body>
-</html>
+        <p>
+            <strong>Your EOI Reference Number:</strong>
+            <?php echo htmlspecialchars((string)$eoiNumber, ENT_QUOTES, 'UTF-8'); ?>
+        </p>
+
+        <p>
+            <strong>Application Status:</strong> New
+        </p>
+
+        <p>Please keep your EOI reference number for future enquiries.</p>
+
+        <p>
+            <a href="index.php">Return to Home</a>
+        </p>
+    </section>
+</main>
+
+<?php include 'footer.inc'; ?>
