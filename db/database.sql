@@ -103,3 +103,16 @@ Ability to work effectively in a team.',
     'Experience creating digital content.
 Interest in tourism, travel and online media.'
 );
+-- Manager login accounts
+CREATE TABLE IF NOT EXISTS users (
+    userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL
+);
+
+INSERT INTO users (username, password_hash)
+VALUES (
+    'admin',
+    '$2y$10$3DqUsl.V7XY2SIEUaKDL5uZMZzGb7tEE1wPNMiupF0r0UWc.U43G6'
+)
+ON DUPLICATE KEY UPDATE password_hash = VALUES(password_hash);
