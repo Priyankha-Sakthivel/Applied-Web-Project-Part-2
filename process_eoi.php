@@ -200,8 +200,7 @@ if (!$conn) {
 // Use UTF-8 for database communication
 if (!mysqli_set_charset($conn, 'utf8mb4')) {
     mysqli_close($conn);
-    http_response_code(500);
-    exit('Error: Unable to configure the database connection.');
+    showDatabaseError('Unable to configure the database connection.');
 }
 
 // Create the EOI table if it does not already exist
@@ -225,8 +224,7 @@ $createTableQuery = "CREATE TABLE IF NOT EXISTS eoi (
 
 if (!mysqli_query($conn, $createTableQuery)) {
     mysqli_close($conn);
-    http_response_code(500);
-    exit('Unable to prepare the application database. Please try again later.');
+    showDatabaseError('Unable to prepare the application database.');
 }
 
 // Convert selected skills into a string
@@ -243,8 +241,7 @@ $stmt = mysqli_prepare($conn, $query);
 
 if (!$stmt) {
     mysqli_close($conn);
-    http_response_code(500);
-    exit('Error: Unable to prepare the application.');
+    showDatabaseError('Unable to prepare the application.');
 }
 
 mysqli_stmt_bind_param(
@@ -268,8 +265,7 @@ mysqli_stmt_bind_param(
 if (!mysqli_stmt_execute($stmt)) {
     mysqli_stmt_close($stmt);
     mysqli_close($conn);
-    http_response_code(500);
-    exit('Error: Unable to save the application.');
+    showDatabaseError('Unable to save the application.');
 }
 
 $eoiNumber = mysqli_insert_id($conn);
