@@ -71,31 +71,31 @@ $requiredFields = [
 
 foreach ($requiredFields as $field => $value) {
     if ($value === '') {
-    showApplicationError("$field is required.");
-}
+        showApplicationError("$field is required.");
+    }
 }
 
 // Validate job reference: exactly 6 letters or numbers
 if (!preg_match('/^[A-Za-z0-9]{6}$/', $jobRef)) {
-    exit('Error: Job reference must contain exactly 6 letters or numbers.');
+    showApplicationError('Job reference must contain exactly 6 letters or numbers.');
 }
 
 // Validate applicant names
 if (!preg_match('/^[A-Za-z]{1,20}$/', $firstName) ||
     !preg_match('/^[A-Za-z]{1,20}$/', $lastName)) {
-    exit('Error: First and last names must contain 1 to 20 letters.');
+    showApplicationError('First and last names must contain 1 to 20 letters.');
 }
 
 // Validate date of birth in dd/mm/yyyy format
 $date = DateTime::createFromFormat('!d/m/Y', $dob);
 
 if (!$date || $date->format('d/m/Y') !== $dob) {
-    exit('Error: Please enter a valid date of birth in dd/mm/yyyy format.');
+    showApplicationError('Please enter a valid date of birth in dd/mm/yyyy format.');
 }
 
 // Check that the applicant is not born in the future
 if ($date > new DateTime('today')) {
-    exit('Error: Date of birth cannot be in the future.');
+    showApplicationError('Date of birth cannot be in the future.');
 }
 
 // Convert to MySQL DATE format
@@ -105,39 +105,39 @@ $dob = $date->format('Y-m-d');
 $validGenders = ['Male', 'Female', 'Other', 'Prefer not to say'];
 
 if (!in_array($gender, $validGenders, true)) {
-    exit('Error: Please select a valid gender.');
+    showApplicationError('Please select a valid gender.');
 }
 
 // Validate street address
 if (strlen($streetAddress) < 2 || strlen($streetAddress) > 40) {
-    exit('Error: Street address must be between 2 and 40 characters.');
+    showApplicationError('Street address must be between 2 and 40 characters.');
 }
 
 // Validate suburb
 if (!preg_match("/^[A-Za-z0-9 ]{2,40}$/", $suburb)) {
-    exit('Error: Please enter a valid suburb.');
+    showApplicationError('Please enter a valid suburb.');
 }
 
 // Validate Australian state
 $validStates = ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'];
 
 if (!in_array($state, $validStates, true)) {
-    exit('Error: Please select a valid Australian state.');
+    showApplicationError('Please select a valid Australian state.');
 }
 
 // Validate postcode
 if (!preg_match('/^[0-9]{4}$/', $postcode)) {
-    exit('Error: Postcode must contain exactly 4 digits.');
+    showApplicationError('Postcode must contain exactly 4 digits.');
 }
 
 // Validate email address
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    exit('Error: Please enter a valid email address.');
+    showApplicationError('Please enter a valid email address.');
 }
 
 // Validate phone number: 8 to 12 digits
 if (!preg_match('/^[0-9]{8,12}$/', $phoneNum)) {
-    exit('Error: Phone number must contain 8 to 12 digits.');
+    showApplicationError('Phone number must contain 8 to 12 digits.');
 }
 
 // Validate selected skills
@@ -150,18 +150,18 @@ $allowedSkills = [
 ];
 
 if (!is_array($skills)) {
-    exit('Error: Invalid skills selection.');
+    showApplicationError('Invalid skills selection.');
 }
 
 foreach ($skills as $skill) {
     if (!in_array($skill, $allowedSkills, true)) {
-        exit('Error: Invalid skill selected.');
+        showApplicationError('Invalid skill selected.');
     }
 }
 
 // Validate other skills length
 if (strlen($otherSkills) > 1000) {
-    exit('Error: Other skills must not exceed 1000 characters.');
+    showApplicationError('Other skills must not exceed 1000 characters.');
 }
 
 // Connect to the project database
