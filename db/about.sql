@@ -1,4 +1,11 @@
 -- about.sql - tables for the dynamic About page
+-- NOTE: Run this after database.sql. Run once on a fresh database —
+-- re-running will drop and recreate the About tables.
+CREATE DATABASE IF NOT EXISTS project2db
+    DEFAULT CHARSET=utf8mb4;
+
+USE project2db;
+
 SET NAMES utf8mb4;
 
 DROP TABLE IF EXISTS contributions;
