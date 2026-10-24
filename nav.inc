@@ -8,5 +8,6 @@ $current = basename($_SERVER['PHP_SELF']);
     <li><a href="jobs.php" <?php if ($current == 'jobs.php') echo 'class="active" aria-current="page"'; ?>>Jobs</a></li>
     <li><a href="apply.php" <?php if ($current == 'apply.php') echo 'class="active" aria-current="page"'; ?>>Apply</a></li>
     <li><a href="about.php" <?php if ($current == 'about.php') echo 'class="active" aria-current="page"'; ?>>About</a></li>
+    <li><a href="tips.php" <?php if ($current == 'tips.php') echo 'class="active" aria-current="page"'; ?>>Travel Tips</a></li>
   </ul>
 </nav>
