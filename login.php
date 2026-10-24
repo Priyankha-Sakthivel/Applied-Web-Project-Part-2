@@ -1,6 +1,7 @@
 <?php
 // Mark: authenticate manager accounts and establish the session used by manage.php.
 // Gen Ai was used to assist in writing file, but code was reviewed, modified and tested by us.
+// login variables
 session_start();
 
 if (($_SESSION['manager_logged_in'] ?? false) === true) {
