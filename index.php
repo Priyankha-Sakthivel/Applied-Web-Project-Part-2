@@ -50,51 +50,40 @@ if ($conn) {
   <h2>Our Trusted Partners</h2>
   <img src="images/image.png" alt="Collage of companies affiliated with HireHub">
 </section>
+
 <section class="offices">
   <h2>Physical Locations</h2>
   <table>
     <caption>Our Offices</caption>
-    <tr>
-      <th colspan="3">Victoria</th>
-    </tr>
-    <tr>
-      <th>City</th>
-      <th>Focus Area</th>
-      <th>Contact</th>
-    </tr>
-    <tr>
-      <td class="hq-city">Melbourne (HQ)</td> 
-      <td>Partnerships, Help centre</td>
-      <td>03 0009 4569</td>
-    </tr>
+    <thead>
+      <tr>
+        <th scope="col">City</th>
+        <th scope="col">Focus Area</th>
+        <th scope="col">Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="colgroup" colspan="3">Victoria</th></tr>
+      <tr>
+        <td class="hq-city">Melbourne (HQ)</td>
+        <td>Partnerships, Help centre</td>
+        <td>03 0009 4569</td>
+      </tr>
 
-    <tr>
-      <th colspan="3">New South Wales</th>
-    </tr>
-    <tr>
-      <th>City</th>
-      <th>Focus Area</th>
-      <th>Contact</th>
-    </tr>
-    <tr>
-      <td>Sydney</td>
-      <td>Platforms &amp; Bookings</td>
-      <td>02 0009 4569</td>
-    </tr>
+      <tr><th scope="colgroup" colspan="3">New South Wales</th></tr>
+      <tr>
+        <td>Sydney</td>
+        <td>Platforms &amp; Bookings</td>
+        <td>02 0009 4569</td>
+      </tr>
 
-    <tr>
-      <th colspan="3">Western Australia</th>
-    </tr>
-    <tr>
-      <th>City</th>
-      <th>Focus Area</th>
-      <th>Contact</th>
-    </tr>
-    <tr>
-      <td>Perth</td>
-      <td>Internal Logistics &amp; Human Resources</td>
-      <td>08 0009 4469</td>
-    </tr>
+      <tr><th scope="colgroup" colspan="3">Western Australia</th></tr>
+      <tr>
+        <td>Perth</td>
+        <td>Internal Logistics &amp; Human Resources</td>
+        <td>08 0009 4469</td>
+      </tr>
+    </tbody>
   </table>
 </section>
 
