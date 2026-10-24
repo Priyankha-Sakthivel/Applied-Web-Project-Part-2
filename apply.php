@@ -26,7 +26,7 @@ include 'header.inc';
                 if ($conn) {
                     $query = "SELECT jobRef, title FROM jobs";
                     $result = mysqli_query($conn, $query);
-                    $checkedJobRef = $_POST['jobRef'] ?? '';
+                    $checkedJobRef = $_POST['jobRef'] ?? $_GET['job'] ?? '';
                     
                 
                     while($row = mysqli_fetch_assoc($result)) {
