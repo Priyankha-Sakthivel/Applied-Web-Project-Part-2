@@ -49,29 +49,29 @@ include 'header.inc';
             <legend>Personal Information</legend>
        
             <p>
-                <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required>
+                <label for="firstName">First Name *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required style="width:1130px;">
             </p>
 
             <p>
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required>
+                <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required style="width:1130px;">
             </p>
 
             <p>
                 <label for="dob">Date of Birth *</label>
                 <!-- GenAI (Claude) suggested adding inputmode="numeric" to trigger a numeric keypad on mobile devices for this date field -->
-                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" inputmode="numeric" required>
+                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" inputmode="numeric" required style="width:1130px;">
             </p>
             
             <p>
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" inputmode="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+                <input type="email" id="email" name="email" inputmode="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required style="width:1130px;">
             </p>
 
             <p>
                 <label for="phoneNum">Phone Number *</label>
-                <input type="text" id="phoneNum" name="phoneNum" pattern="[0-9]{8,12}" maxlength="12" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required>
+                <input type="text" id="phoneNum" name="phoneNum" pattern="[0-9]{8,12}" maxlength="12" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required style="width:1130px;">
             </p>
 
         </fieldset>
