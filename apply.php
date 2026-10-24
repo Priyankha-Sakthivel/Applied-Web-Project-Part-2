@@ -97,17 +97,17 @@ include 'header.inc';
         <fieldset>
             <legend>Address</legend>
             <p>
-            <label for="streetAddress">Street Address *</label>
-            <input type="text" id="streetAddress" name="streetAddress" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required>
+            <label for="streetAddress">Street Address *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="streetAddress" name="streetAddress" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required style="width:1130px;">
             </p>
             <p>
               <label for="suburb">Suburb *</label>
-              <input type="text" id="suburb" name="suburb" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required>
+              <input type="text" id="suburb" name="suburb" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required style="width:1130px;">
             </p>
             <p>
               <label for="state">State *</label>
               <?php $checkedState = $_POST['state'] ?? ''; ?>
-              <select id="state" name="state" required>
+              <select id="state" name="state" required style="width:1130px;">
                 <option value="" selected disabled>Select a state</option>
                 <option value="VIC" <?php echo ($checkedState == 'VIC') ? 'selected' : ''; ?>>VIC</option>
                 <option value="NSW" <?php echo ($checkedState == 'NSW') ? 'selected' : ''; ?>>NSW</option>
@@ -121,7 +121,7 @@ include 'header.inc';
             </p>
             <p>
               <label for="postcode">Postcode * </label>
-              <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required>
+              <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required style="width:1130px;">
             </p>
         </fieldset>
 
