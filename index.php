@@ -4,6 +4,24 @@ $page_title = "HireHub | Travel & Tourism Careers";
 $body_class = "home-page";
 include 'header.inc';
 ?>
+<?php 
+// Load the three latest job listings so the home page is database driven.
+require_once 'settings.php';
+mysqli_report(MYSQLI_REPORT_OFF);
+$conn = @mysqli_connect($host, $user, $pwd, $sql_db);
+$latestJobs = [];
+if ($conn) {
+    mysqli_set_charset($conn, 'utf8mb4');
+    $result = mysqli_query($conn, "SELECT jobRef, title, salary FROM jobs ORDER BY jobRef LIMIT 3");
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $latestJobs[] = $row;
+        }
+        mysqli_free_result($result);
+    }
+    mysqli_close($conn);
+}
+?>
 <main>
 <section class="hero">
   <h1>Your Odyssey To Success</h1>
