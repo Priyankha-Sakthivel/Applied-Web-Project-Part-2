@@ -82,13 +82,13 @@ include 'header.inc';
             <p>
                 <label for="gender1">Male</label>
                 <input type="radio" id="gender1" name="gender" value="Male" <?php echo ($checkedGender == 'Male') ? 'checked' : ''; ?> required>
-                 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="gender2">Female</label>
                 <input type="radio" id="gender2" name="gender" value="Female" <?php echo ($checkedGender == 'Female') ? 'checked' : ''; ?>>
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="gender3">Other</label>
                 <input type="radio" id="gender3" name="gender" value="Other" <?php echo ($checkedGender == 'Other') ? 'checked' : ''; ?>>
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="gender4">Prefer not to say</label>
                 <input type="radio" id="gender4" name="gender" value="Prefer not to say" <?php echo ($checkedGender == 'Prefer not to say') ? 'checked' : ''; ?>>
             </p>
@@ -133,12 +133,16 @@ include 'header.inc';
         <p>
             <label for="skill1">Adaptability</label> 
         <input type="checkbox" id="skill1" name="skills[]" value="adaptability" <?php echo in_array('adaptability', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill2">Communication</label> 
         <input type="checkbox" id="skill2" name="skills[]" value="communication" <?php echo in_array('communication', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill3">Problem-Solving</label> 
         <input type="checkbox" id="skill3" name="skills[]" value="problem-solving" <?php echo in_array('problem-solving', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill4">Time Management</label> 
         <input type="checkbox" id="skill4" name="skills[]" value="time_Management" <?php echo in_array('time_Management', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill5">Conflict Resolution</label> 
         <input type="checkbox" id="skill5" name="skills[]" value="conflict_resolution" <?php echo in_array('conflict_resolution', $checkedSkills) ? 'checked' : ''; ?>>
       </p>
