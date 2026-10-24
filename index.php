@@ -28,6 +28,24 @@ if ($conn) {
   <p> HireHub is your ticket to finding a career in the tourism and travelling. From booking agents to travel planners, we have a diverse portfolio of paths we can help you walk in this competitive industry</p>
   <a href="jobs.php" class="btn">View Job Opportunities</a>
 </section>
+
+<?php if (!empty($latestJobs)): ?>
+<section class="latest-jobs">
+  <h2>Latest Opportunities</h2>
+  <ul>
+    <?php foreach ($latestJobs as $job): ?>
+      <li>
+        <a href="jobs.php#job-<?php echo htmlspecialchars($job['jobRef']); ?>">
+          <?php echo htmlspecialchars($job['title']); ?>
+        </a>
+        — <?php echo htmlspecialchars($job['salary']); ?>
+      </li>
+    <?php endforeach; ?>
+  </ul>
+  <p><a href="jobs.php" class="btn">See all jobs</a></p>
+</section>
+<?php endif; ?>
+
 <section class="employers">
   <h2>Our Trusted Partners</h2>
   <img src="images/image.png" alt="Collage of companies affiliated with HireHub">
