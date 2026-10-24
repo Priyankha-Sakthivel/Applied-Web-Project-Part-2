@@ -496,3 +496,17 @@ nav a.active {
 .page-title-spaced {
     letter-spacing: 0.5px;
 }
+/* Home page: latest opportunities (dynamic) */
+.home-page .latest-jobs {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: white;
+  border: 4px solid #14324a;
+  border-radius: 8px;
+}
+
+.home-page .latest-jobs h2 {
+  color: #14324a;
+  margin-bottom: 20px;
+}
