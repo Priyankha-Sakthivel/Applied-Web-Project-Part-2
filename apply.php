@@ -26,7 +26,7 @@ include 'header.inc';
                 if ($conn) {
                     $query = "SELECT jobRef, title FROM jobs";
                     $result = mysqli_query($conn, $query);
-                    $checkedJobRef = $_POST['jobRef'] ?? '';
+                    $checkedJobRef = $_POST['jobRef'] ?? $_GET['job'] ?? '';
                     
                 
                     while($row = mysqli_fetch_assoc($result)) {
@@ -49,29 +49,29 @@ include 'header.inc';
             <legend>Personal Information</legend>
        
             <p>
-                <label for="firstName">First Name *</label>
-                <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required>
+                <label for="firstName">First Name *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" id="firstName" name="firstName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>" required style="width:1130px;">
             </p>
 
             <p>
                 <label for="lastName">Last Name *</label>
-                <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required>
+                <input type="text" id="lastName" name="lastName" pattern="[A-Za-z]{1,20}" maxlength="20" value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>" required style="width:1130px;">
             </p>
 
             <p>
                 <label for="dob">Date of Birth *</label>
                 <!-- GenAI (Claude) suggested adding inputmode="numeric" to trigger a numeric keypad on mobile devices for this date field -->
-                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" inputmode="numeric" required>
+                <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($_POST['dob'] ?? ''); ?>" inputmode="numeric" required style="width:1130px;">
             </p>
             
             <p>
                 <label for="email">Email *</label>
-                <input type="email" id="email" name="email" inputmode="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required>
+                <input type="email" id="email" name="email" inputmode="email" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" required style="width:1130px;">
             </p>
 
             <p>
                 <label for="phoneNum">Phone Number *</label>
-                <input type="text" id="phoneNum" name="phoneNum" pattern="[0-9]{8,12}" maxlength="12" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required>
+                <input type="text" id="phoneNum" name="phoneNum" pattern="[0-9]{8,12}" maxlength="12" value="<?php echo htmlspecialchars($_POST['phoneNum'] ?? ''); ?>" inputmode="tel" required style="width:1130px;">
             </p>
 
         </fieldset>
@@ -82,13 +82,13 @@ include 'header.inc';
             <p>
                 <label for="gender1">Male</label>
                 <input type="radio" id="gender1" name="gender" value="Male" <?php echo ($checkedGender == 'Male') ? 'checked' : ''; ?> required>
-                 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="gender2">Female</label>
                 <input type="radio" id="gender2" name="gender" value="Female" <?php echo ($checkedGender == 'Female') ? 'checked' : ''; ?>>
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="gender3">Other</label>
                 <input type="radio" id="gender3" name="gender" value="Other" <?php echo ($checkedGender == 'Other') ? 'checked' : ''; ?>>
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <label for="gender4">Prefer not to say</label>
                 <input type="radio" id="gender4" name="gender" value="Prefer not to say" <?php echo ($checkedGender == 'Prefer not to say') ? 'checked' : ''; ?>>
             </p>
@@ -97,17 +97,17 @@ include 'header.inc';
         <fieldset>
             <legend>Address</legend>
             <p>
-            <label for="streetAddress">Street Address *</label>
-            <input type="text" id="streetAddress" name="streetAddress" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required>
+            <label for="streetAddress">Street Address *&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" id="streetAddress" name="streetAddress" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['streetAddress'] ?? ''); ?>" required style="width:1130px;">
             </p>
             <p>
               <label for="suburb">Suburb *</label>
-              <input type="text" id="suburb" name="suburb" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required>
+              <input type="text" id="suburb" name="suburb" pattern="[A-Za-z0-9\s.,#'-]{2,40}" maxlength="40" value="<?php echo htmlspecialchars($_POST['suburb'] ?? ''); ?>" required style="width:1130px;">
             </p>
             <p>
               <label for="state">State *</label>
               <?php $checkedState = $_POST['state'] ?? ''; ?>
-              <select id="state" name="state" required>
+              <select id="state" name="state" required style="width:1130px;">
                 <option value="" selected disabled>Select a state</option>
                 <option value="VIC" <?php echo ($checkedState == 'VIC') ? 'selected' : ''; ?>>VIC</option>
                 <option value="NSW" <?php echo ($checkedState == 'NSW') ? 'selected' : ''; ?>>NSW</option>
@@ -121,7 +121,7 @@ include 'header.inc';
             </p>
             <p>
               <label for="postcode">Postcode * </label>
-              <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required>
+              <input type="text" id="postcode" name="postcode" pattern="[0-9]{4}" maxlength="4" value="<?php echo htmlspecialchars($_POST['postcode'] ?? ''); ?>" required style="width:1130px;">
             </p>
         </fieldset>
 
@@ -133,12 +133,16 @@ include 'header.inc';
         <p>
             <label for="skill1">Adaptability</label> 
         <input type="checkbox" id="skill1" name="skills[]" value="adaptability" <?php echo in_array('adaptability', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill2">Communication</label> 
         <input type="checkbox" id="skill2" name="skills[]" value="communication" <?php echo in_array('communication', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill3">Problem-Solving</label> 
         <input type="checkbox" id="skill3" name="skills[]" value="problem-solving" <?php echo in_array('problem-solving', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill4">Time Management</label> 
         <input type="checkbox" id="skill4" name="skills[]" value="time_Management" <?php echo in_array('time_Management', $checkedSkills) ? 'checked' : ''; ?>>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <label for="skill5">Conflict Resolution</label> 
         <input type="checkbox" id="skill5" name="skills[]" value="conflict_resolution" <?php echo in_array('conflict_resolution', $checkedSkills) ? 'checked' : ''; ?>>
       </p>

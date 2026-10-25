@@ -1,3 +1,9 @@
+
+CREATE DATABASE IF NOT EXISTS project2db
+    DEFAULT CHARACTER SET utf8mb4;
+
+USE project2db;
+
 -- Task 3: Expression of Interest table
 -- Group 02: Tourism and Travel
 
@@ -18,17 +24,6 @@ CREATE TABLE IF NOT EXISTS eoi (
     otherSkills TEXT,
     status ENUM('New', 'Current', 'Final') NOT NULL DEFAULT 'New'
 );
-
--- HR manager accounts.
--- Store password_hash() output, never plaintext passwords.
-CREATE TABLE IF NOT EXISTS users (
-    userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL
-);
-
--- TODO: Create the marker's admin account with username "admin" and a
--- password_hash() hash of "admin"; do not insert the plaintext password.
 
 -- Task 4: Store job descriptions in the database
 -- Group 02: Tourism and Travel
@@ -103,13 +98,18 @@ Ability to work effectively in a team.',
     'Experience creating digital content.
 Interest in tourism, travel and online media.'
 );
--- Manager login accounts
+
+-- Task 4: Manager accounts for login.php
+-- Group 02: Tourism and Travel
+
 CREATE TABLE IF NOT EXISTS users (
     userID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(100) NOT NULL UNIQUE,
     password_hash VARCHAR(255) NOT NULL
 );
 
+-- Insert or update the test manager account
+-- Password: admin (stored as a PHP password_hash)
 INSERT INTO users (username, password_hash)
 VALUES (
     'admin',

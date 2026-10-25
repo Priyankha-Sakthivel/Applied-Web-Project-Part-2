@@ -183,6 +183,7 @@ include 'header.inc';
 ?>
 <main>
     <h1>Manage Expressions of Interest</h1>
+    <p><a href="logout.php">Log out</a></p>
 
     <section>
         <h2>List EOIs</h2>
