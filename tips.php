@@ -248,4 +248,4 @@ include 'header.inc';
 </main>
 <?php include 'footer.inc'; ?>
 
-<!-- AI was used in the making of this file, speciffically in the formatting and creation process, prompt:"how should i format a tips pag
+<!-- AI was used in the making of this file, speciffically in the formatting and creation process, prompt:"how should i format a tips page according do the data / structure of other pages i made (old index.html and manage.php)"
