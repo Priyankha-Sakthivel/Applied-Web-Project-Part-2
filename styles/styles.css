@@ -535,3 +535,112 @@ nav a.active {
 .home-page .latest-jobs a:hover {
   text-decoration: underline;
 }
+
+/* ===== START OF DIMITRI - TRAVEL TIPS PAGE CSS ===== */
+.tips-page {
+    color: #243746;
+    background-color: #f4f7f9;
+}
+
+.tips-page main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.tips-page h1,
+.tips-page h2,
+.tips-page h3 {
+    color: #14324a;
+}
+
+/* Each section is a white panel, matching the About page */
+.tips-page section {
+    background-color: white;
+    border: 1px solid #d6dde3;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    padding: 20px;
+}
+
+/* Grid layout: the tip cards sit in columns at least 280px wide,
+   as many columns as fit the screen */
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.tip-card {
+    border: 1px solid #d6dde3;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9fbfc;
+}
+
+/* Images fill the width of their card and keep their shape */
+.tip-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.tip-card .tip-category,
+.tip-card h3,
+.tip-card p {
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.tip-card .tip-category {
+    display: inline-block;
+    background-color: #f2a71b;
+    color: #14324a;
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 10px;
+    border-radius: 12px;
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+.tip-card h3 {
+    margin-top: 8px;
+}
+
+/* Destination quick guide table, matching the About page tables */
+.tips-page table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tips-page caption {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.tips-page th,
+.tips-page td {
+    border: 1px solid #b8c7d1;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.tips-page thead th {
+    background-color: #14324a;
+    color: white;
+}
+
+.tips-page tbody th {
+    background-color: #eaf2f7;
+}
+
+/* Small screens: let the table scroll sideways instead of squashing */
+@media screen and (max-width: 800px) {
+    .tips-page table {
+        display: block;
+        overflow-x: auto;
+    }
+}
+/* ===== END OF DIMITRI - TRAVEL TIPS PAGE CSS ===== */

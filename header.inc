@@ -1,6 +1,7 @@
 <?php
 // header.inc - shared <head>, logo and navigation for every page.
 // Each page sets $page_title and $body_class (optionally $page_description) before including this file.
+// A page can also set $page_css to add its own embedded <style> block to the <head>.
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,11 @@
     <meta name="author" content="HireHub">
     <title><?php echo htmlspecialchars($page_title ?? 'HireHub | Travel & Tourism Careers'); ?></title>
     <link rel="stylesheet" href="styles/styles.css">
+    <?php if (!empty($page_css)): ?>
+      <style>
+         <?php echo $page_css; ?>
+      </style>
+    <?php endif; ?>
 </head>
 
 <body class="<?php echo htmlspecialchars($body_class ?? ''); ?>">
