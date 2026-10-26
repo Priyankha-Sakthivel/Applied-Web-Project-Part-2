@@ -11,6 +11,9 @@ if (($_SESSION['manager_logged_in'] ?? false) !== true) {
 
 require_once 'settings.php';
 
+// Return false on connection failure instead of throwing, matching the other pages.
+mysqli_report(MYSQLI_REPORT_OFF); // Added by Priyankha
+
 // Holds the EOIs to show in the results table.
 // null = no list requested yet, so the results section stays hidden.
 $results = null; 
