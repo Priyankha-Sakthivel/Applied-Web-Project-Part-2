@@ -1,0 +1,1 @@
+Images used by CSS (background graphics) go here.
