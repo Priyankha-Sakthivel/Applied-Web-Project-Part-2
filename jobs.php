@@ -1,7 +1,7 @@
 <?php
 // Task 4: Display job listings dynamically from the database
 // Group 02 - Tourism and Travel
-
+// REVIEW FIX (Priyankha, 26 Oct 2026): added job anchor ids and aria labels. Original author: Thomas. GenAI (Claude) used to suggest these; applied and tested by Priyankha.
 require_once 'settings.php';
 $databaseError = false;
 
@@ -123,7 +123,7 @@ include 'header.inc';
     <main>
         <h1 class="page-title">Career Opportunities</h1>
 
-        <form action="jobs.php" method="get">
+        <form action="jobs.php" method="get" role="search" aria-label="Search jobs">
     <label for="search">Search Jobs:</label>
 
     <input
@@ -138,7 +138,7 @@ include 'header.inc';
     <a href="jobs.php">Clear Search</a>
 </form>
 
-        <aside>
+        <aside aria-label="Why work with us">
             <h2>Why Work With Us?</h2>
 
             <p>
@@ -164,7 +164,7 @@ include 'header.inc';
 
             <?php foreach ($jobs as $job): ?>
 
-                <section>
+                <section id="job-<?php echo displayJobText($job['jobRef']); ?>">
                     <h2><?php echo displayJobText($job['title']); ?></h2>
 
                     <p>

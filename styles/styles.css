@@ -664,3 +664,12 @@ nav a.active {
    .manage-page table { border-collapse: collapse; display: block; overflow-x: auto; }
    .manage-page th, .manage-page td { border: 1px solid #b8c7d1; padding: 8px; text-align: left; }
    .manage-page thead th { background-color: #14324a; color: white; }
+
+/* REVIEW FIX (Priyankha, 26 Oct 2026): Stop the aside overlapping job cards below 1000px */
+@media (max-width: 1000px) {
+    .jobs-page aside {
+        float: none;
+        width: auto;
+        margin: 0 0 20px 0;
+    }
+}
