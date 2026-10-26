@@ -1,9 +1,19 @@
-
 <?php
 // Task 3: Process job applications
 // Group 02 - Tourism and Travel
 
 require_once 'settings.php';
+// REVIEW FIX (Priyankha, 26 Oct 2026): Original author: Thomas.
+   // - turn off mysqli exceptions so our database error pages can appear
+   // - clean() trims AND strips slashes as the brief requires. Data is stored raw
+   //   (prepared statements) and escaped with htmlspecialchars() when displayed.
+   // - direct access is blocked unless the form's text fields were posted
+   // - suburb rule matches the form; at least one skill is required
+   mysqli_report(MYSQLI_REPORT_OFF);
+
+   function clean($value) {
+       return is_string($value) ? trim(stripslashes($value)) : '';
+   }
 
 // Display validation errors using the normal website layout
 function showApplicationError($message) {
@@ -55,29 +65,32 @@ function showDatabaseError($message) {
     exit;
 }
 
-// Only accept form submissions using POST
+// Only accept form submissions: POST with the text fields the form always sends
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: apply.php');
     exit;
+} elseif (!isset($_POST['firstName'], $_POST['lastName'], $_POST['dob'], $_POST['email'], $_POST['phoneNum'], $_POST['streetAddress'], $_POST['suburb'], $_POST['postcode'])) { // Added by Priyankha
+    header('Location: apply.php'); // Added by Priyankha
+    exit; // Added by Priyankha
 }
 
-// Read submitted application details
-$jobRef = trim($_POST['jobRef'] ?? '');
-$firstName = trim($_POST['firstName'] ?? '');
-$lastName = trim($_POST['lastName'] ?? '');
-$dob = trim($_POST['dob'] ?? '');
-$gender = trim($_POST['gender'] ?? '');
+// Read submitted application details (trimmed, slashes stripped by Priyankha)
+$jobRef = clean($_POST['jobRef'] ?? '');
+$firstName = clean($_POST['firstName'] ?? '');
+$lastName = clean($_POST['lastName'] ?? '');
+$dob = clean($_POST['dob'] ?? '');
+$gender = clean($_POST['gender'] ?? '');
 
-$streetAddress = trim($_POST['streetAddress'] ?? '');
-$suburb = trim($_POST['suburb'] ?? '');
-$state = trim($_POST['state'] ?? '');
-$postcode = trim($_POST['postcode'] ?? '');
+$streetAddress = clean($_POST['streetAddress'] ?? '');
+$suburb = clean($_POST['suburb'] ?? '');
+$state = clean($_POST['state'] ?? '');
+$postcode = clean($_POST['postcode'] ?? '');
 
-$email = trim($_POST['email'] ?? '');
-$phoneNum = trim($_POST['phoneNum'] ?? '');
+$email = clean($_POST['email'] ?? '');
+$phoneNum = clean($_POST['phoneNum'] ?? '');
 
 $skills = $_POST['skills'] ?? [];
-$otherSkills = trim($_POST['otherSkills'] ?? '');
+$otherSkills = clean($_POST['otherSkills'] ?? '');
 
 // Check that all required fields have been submitted
 $requiredFields = [
@@ -139,7 +152,7 @@ if (strlen($streetAddress) < 2 || strlen($streetAddress) > 40) {
 }
 
 // Validate suburb
-if (!preg_match("/^[A-Za-z0-9 ]{2,40}$/", $suburb)) {
+if (!preg_match("/^[A-Za-z0-9\s.,#'-]{2,40}$/", $suburb)) {
     showApplicationError('Please enter a valid suburb.');
 }
 
@@ -174,8 +187,8 @@ $allowedSkills = [
     'conflict_resolution'
 ];
 
-if (!is_array($skills)) {
-    showApplicationError('Invalid skills selection.');
+if (count($skills) === 0) {
+    showApplicationError('Please select at least one skill.');
 }
 
 foreach ($skills as $skill) {
