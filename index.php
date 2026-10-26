@@ -48,7 +48,7 @@ if ($conn) {
 
 <section class="employers">
   <h2>Our Trusted Partners</h2>
-  <img src="images/image.png" alt="Collage of companies affiliated with HireHub">
+  <img src="images/partners_logo.jpeg" alt="Collage of companies affiliated with HireHub">
 </section>
 
 <section class="offices">
