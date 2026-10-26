@@ -1,6 +1,7 @@
-<?php
+<?php 
 // Task 3: Process job applications
 // Group 02 - Tourism and Travel
+// GenAI (Claude) used to review this file and suggest fixes; applied and tested by Priyankha.
 
 require_once 'settings.php';
 // REVIEW FIX (Priyankha, 26 Oct 2026): Original author: Thomas.
@@ -169,7 +170,7 @@ if (!preg_match('/^[0-9]{4}$/', $postcode)) {
 }
 
 // Validate email address
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match('/@[^@\s]+\.[A-Za-z]{2,}$/', $email)) {
     showApplicationError('Please enter a valid email address.');
 }
 
@@ -187,7 +188,7 @@ $allowedSkills = [
     'conflict_resolution'
 ];
 
-if (count($skills) === 0) {
+if (!is_array($skills) || count($skills) === 0) {
     showApplicationError('Please select at least one skill.');
 }
 
