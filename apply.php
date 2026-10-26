@@ -1,4 +1,3 @@
-
 <?php
 // apply.php - Job application form.
 // Part 1 fields 1-6 (Job Reference, First Name, Last Name, Date of Birth, Gender, Street Address): Priyankha Sakthivel

@@ -1,4 +1,3 @@
-
 <?php
 // Task 4: Display job listings dynamically from the database
 // Group 02 - Tourism and Travel
