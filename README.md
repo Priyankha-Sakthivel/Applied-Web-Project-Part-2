@@ -1,5 +1,8 @@
 # Applied-Web-Project-Part-2
 Jira board: [https://studentteam2.atlassian.net/browse/G2]
+GitHub Reopsitory: [(https://github.com/Priyankha-Sakthivel/Applied-Web-Project-Part-2)]
+
+Import Instructions: import db/project2db.sql
 
 ## Mark — Files created
 ### login.php
