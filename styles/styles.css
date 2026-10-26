@@ -212,10 +212,7 @@ nav a.active {
     width: 100%;
     box-sizing: border-box;
 }
-/* Gender and Skills rows have multiple label/input pairs per <p>,so they shouldn't use the 2-column grid meant for single fields */
-.apply-page fieldset legend + p {
-    display: block;
-}
+
 /* Responsive: stack label above input on small screens */
 @media screen and (max-width: 600px) {
     .apply-page fieldset p {
@@ -644,3 +641,25 @@ nav a.active {
     }
 }
 /* ===== END OF DIMITRI - TRAVEL TIPS PAGE CSS ===== */
+/* REVIEW FIX (Priyankha, 26 Oct 2026): option rows use flex instead of the 2-column grid */
+   .apply-page p.option-row { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: center; }
+   .apply-page p.option-row label { display: inline-flex; align-items: center; gap: 6px; }
+   .apply-page p.stacked { display: block; }
+
+/* REVIEW FIX (Priyankha, 26 Oct 2026): padding was added on top of the 68%/24% widths, so the aside overlapped */
+   .jobs-page section, .jobs-page aside { box-sizing: border-box; }
+   .jobs-page main::after { content: ""; display: block; clear: both; }
+   .jobs-page .apply-button { display: inline-block; background-color: #f2a71b; color: #14324a; font-weight: bold; text-decoration: none; padding: 10px 22px; border-radius: 999px; }
+   .jobs-page .apply-button:hover { background-color: #d8930f; }
+
+/* REVIEW FIX (Priyankha, 26 Oct 2026): hover effect for the About table (Part 1 requirement) */
+   .about-page tbody tr:hover { background-color: #eaf2f7; }
+
+/* REVIEW FIX (Priyankha, 26 Oct 2026): basic styling for the login and manage pages */
+   .login-page main, .manage-page main { width: 90%; max-width: 1100px; margin: 30px auto; }
+   .login-page form { display: grid; gap: 10px; max-width: 400px; }
+   .manage-page section { background: white; border: 1px solid #d6dde3; border-radius: 8px; padding: 20px; margin-bottom: 25px; }
+   .manage-page form { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+   .manage-page table { border-collapse: collapse; display: block; overflow-x: auto; }
+   .manage-page th, .manage-page td { border: 1px solid #b8c7d1; padding: 8px; text-align: left; }
+   .manage-page thead th { background-color: #14324a; color: white; }
