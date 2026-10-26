@@ -3,6 +3,7 @@
 /* GenAI (Claude) was used to suggest the base html/body rules below, which fix a
    background rendering strip on the home page and remove the default body margin
    that was exposing the browser's default background colour. */
+/* GenAI (Claude) was used to review this file and suggest the REVIEW FIX rules at the bottom; applied and tested by Priyankha. */
 html {
     background-color: #eef1f4;
 }
