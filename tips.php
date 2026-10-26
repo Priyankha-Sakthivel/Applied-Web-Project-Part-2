@@ -1,6 +1,7 @@
 <?php
 // tips.php - Travel Tips page: tips, images, links and a destination guide,
 // all loaded from the database tables created by db/tips.sql.
+// REVIEW FIX (Priyankha, 26 Oct 2026): closed the unclosed HTML comment at the end of the file. Original author: Dimitri.
 
 require_once 'settings.php';
 
@@ -248,4 +249,4 @@ include 'header.inc';
 </main>
 <?php include 'footer.inc'; ?>
 
-<!-- AI was used in the making of this file, speciffically in the formatting and creation process, prompt:"how should i format a tips page according do the data / structure of other pages i made (old index.html and manage.php)"
+<!-- AI was used in the making of this file, speciffically in the formatting and creation process, prompt:"how should i format a tips page according do the data / structure of other pages i made (old index.html and manage.php)"-->
